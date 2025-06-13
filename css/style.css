@@ -1,0 +1,226 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "DM Sans", sans-serif;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 80px;
+  background: #fff;
+  border-right: 2px solid #39a900;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  flex-shrink: 0;
+}
+.sidebar .menu-btn {
+  background: none;
+  border: none;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+.sidebar nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+.sidebar nav ul li:last-child {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.sidebar nav a {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar nav .indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 48px;
+  height: 48px;
+  background: #39A900;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar nav ul {
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar nav a.active svg path,
+.sidebar nav a.active svg circle {
+  fill: #fff !important;
+}
+
+.sidebar nav a:hover svg path,
+.sidebar nav a:hover svg circle {
+  fill: #fff !important;
+}
+
+
+/* Contenido principal */
+.main {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.header h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: bold;
+}
+
+.header .epic {
+  font-weight: 600;
+  font-size: clamp(18px, 2.5vw, 30px);
+  margin-left: 0.5rem;
+  color: #4caf50;
+}
+
+.epic {
+  display: inline-flex;
+  align-items: center;
+  /* mantiene clamp() que ya tienes */
+}
+
+.epic__dropdown-icon {
+  margin-left: 0.55rem; /* separa icono del texto */
+  flex-shrink: 0;
+  /* hereda color de .epic (currentColor) */
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.actions input[type="search"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 150px;
+}
+
+/* Tabla de backlog */
+.table {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr;
+}
+.table .header-row,
+.table .row {
+  display: contents;
+}
+.table .cell {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.table .header-row .cell {
+  background: #e0e0e0;
+  font-weight: bold;
+}
+.table .row:nth-child(even) .cell {
+  background: #fafafa;
+}
+.title {
+  color: #4caf50;
+  font-weight: bold;
+}
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  text-align: center;
+  min-width: 70px;
+}
+.status.Activo {
+  background: #4caf50;
+  color: #fff;
+}
+.status.Pendiente {
+  background: #a5d6a7;
+  color: #fff;
+}
+.status.Archivado {
+  background: none;
+  border: 1px solid #4caf50;
+  color: #4caf50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    padding: 1rem;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .actions input {
+    flex: 1;
+  }
+  .table {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+  /* Ocultar columna de prioridad en móviles */
+  .cell:nth-child(5),
+  .header-row .cell:nth-child(5) {
+    display: none;
+  }
+}
