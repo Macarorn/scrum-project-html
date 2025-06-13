@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "DM Sans", sans-serif;
   color: #333;
@@ -17,25 +18,30 @@ body {
   background: #fff;
   border-right: 2px solid #39a900;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: visible;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0;
   flex-shrink: 0;
 }
+
 .sidebar .menu-btn {
   background: none;
   border: none;
   margin-bottom: 2rem;
   cursor: pointer;
 }
+
 .sidebar nav {
   display: flex;
   flex-direction: column;
   flex: 1;
   position: relative;
 }
+
 .sidebar nav ul {
   list-style: none;
   display: flex;
@@ -43,10 +49,12 @@ body {
   gap: 1.5rem;
   height: 100%;
 }
+
 .sidebar nav ul li:last-child {
-    margin-top: auto;
-    margin-bottom: 20px;
+  margin-top: auto;
+  margin-bottom: 20px;
 }
+
 .sidebar nav a {
   display: block;
   width: 24px;
@@ -81,6 +89,35 @@ body {
   fill: #fff !important;
 }
 
+/* Tooltip en los iconos del sidebar */
+.sidebar nav a {
+  position: relative;
+}
+
+.sidebar nav a:hover::after {
+  content: attr(aria-label);
+  position: absolute;
+  left: 180%;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.15s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 
 /* Contenido principal */
 .main {
@@ -91,13 +128,16 @@ body {
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  margin-top: 20px;
 }
+
 .header h1 {
   font-size: clamp(32px, 5vw, 48px);
   font-weight: bold;
@@ -117,7 +157,8 @@ body {
 }
 
 .epic__dropdown-icon {
-  margin-left: 0.55rem; /* separa icono del texto */
+  margin-left: 0.55rem;
+  /* separa icono del texto */
   flex-shrink: 0;
   /* hereda color de .epic (currentColor) */
 }
@@ -128,6 +169,7 @@ body {
   gap: 0.75rem;
   align-items: center;
 }
+
 .btn {
   background: #4caf50;
   color: #fff;
@@ -137,13 +179,8 @@ body {
   cursor: pointer;
   font-size: 0.9rem;
 }
-.actions input[type="search"] {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  min-width: 150px;
-}
+
+
 
 /* Tabla de backlog */
 .table {
@@ -153,10 +190,12 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr;
 }
+
 .table .header-row,
 .table .row {
   display: contents;
 }
+
 .table .cell {
   padding: 1rem;
   border-bottom: 1px solid #eee;
@@ -164,17 +203,21 @@ body {
   align-items: center;
   font-size: 0.9rem;
 }
+
 .table .header-row .cell {
   background: #e0e0e0;
   font-weight: bold;
 }
+
 .table .row:nth-child(even) .cell {
   background: #fafafa;
 }
+
 .title {
   color: #4caf50;
   font-weight: bold;
 }
+
 .status {
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
@@ -182,14 +225,17 @@ body {
   text-align: center;
   min-width: 70px;
 }
+
 .status.Activo {
   background: #4caf50;
   color: #fff;
 }
+
 .status.Pendiente {
   background: #a5d6a7;
   color: #fff;
 }
+
 .status.Archivado {
   background: none;
   border: 1px solid #4caf50;
@@ -201,26 +247,82 @@ body {
   .sidebar {
     display: none;
   }
+
   .main {
     padding: 1rem;
   }
+
   .header {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .actions {
     width: 100%;
     justify-content: space-between;
   }
+
   .actions input {
     flex: 1;
   }
+
   .table {
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
   }
+
   /* Ocultar columna de prioridad en móviles */
   .cell:nth-child(5),
   .header-row .cell:nth-child(5) {
     display: none;
   }
+}
+
+/* boton Nueva Historia */
+
+.btn-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #39A900;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 0 27.2px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  
+}
+
+.btn-new svg {
+  flex-shrink: 0;
+}
+/* Search box */
+.search {
+  display: inline-flex;
+  align-items: center;
+  width: 300px;
+  padding: 0.5rem 1rem;
+  border: 5px solid #39A900;
+  border-radius: 15px;
+  background: transparent;
+}
+
+.search svg {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+}
+
+.search input::placeholder {
+  color: #999;
 }
