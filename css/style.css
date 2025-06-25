@@ -1,4 +1,4 @@
-  /* Reset básico */
+/* Reset básico */
   * {
     margin: 0;
     padding: 0;
@@ -127,6 +127,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    padding-left: 50px;
   }
 
   .header {
@@ -183,88 +184,95 @@
 
 
   /* Tabla de backlog */
-    .table {
-      display: block;
-      background: #e0e0e0;
-      padding: 1rem;
-      border-radius: 12px;
-    }
-  
-    .table .header-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr;
-      background: #e0e0e0;
-      border-radius: 8px;
-    }
-  
-    .table .header-row .cell {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      font-weight: bold;
-      color: #575757;
-    }
-  
-    .table .header-row .cell:first-child {
-      justify-content: flex-start;
-    }
-  
-    .table .row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 0.75rem;
-    }
-  
-    .table .row:first-of-type {
-      margin-top: 1rem;
-    }
-  
-    .table .row .cell {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-  
-    .table .row .cell:first-child {
-      justify-content: flex-start;
-    }
-  
-    .table .row .cell:not(:first-child) {
-      border: none;
-    }
-  
-    /* Estado como botón */
-    .table .cell>button.status {
-      width: 150px;
-      padding: 0.5rem 0;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      line-height: 1;
-      cursor: default;
-    }
-  
-    button.status.Activo {
-      background: #39A900;
-      color: #fff;
-      border: none;
-    }
-  
-    button.status.Pendiente {
-      background: #A5D6A7;
-      color: #fff;
-      border: none;
-    }
-  
-    button.status.Archivado {
-      background: #fff;
-      color: #39A900;
-      border: 2px solid #39A900; }
+  .table {
+    display: block;
+    background: #e0e0e0;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .table .header-row,
+  .table .row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 0.3fr; /* 6 columnas, la última más angosta */
+    background: #e0e0e0;
+    border-radius: 8px;
+  }
+
+  .table .header-row .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-weight: bold;
+    color: #575757;
+  }
+
+  .table .header-row .cell:first-child {
+    justify-content: flex-start;
+  }
+
+  .cell.title {
+    color: #39A900;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .table .row {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 0.75rem;
+    height: 100px;
+  }
+
+  .table .row:first-of-type {
+    margin-top: 1rem;
+  }
+
+  .table .row .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .table .row .cell:first-child {
+    justify-content: flex-start;
+  }
+
+  .table .row .cell:not(:first-child) {
+    border: none;
+  }
+
+  /* Estado como botón */
+  .table .cell>button.status {
+    width: 150px;
+    padding: 0.5rem 0;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: default;
+  }
+
+  button.status.Activo {
+    background: #39A900;
+    color: #fff;
+    border: none;
+  }
+
+  button.status.Pendiente {
+    background: #A5D6A7;
+    color: #fff;
+    border: none;
+  }
+
+  button.status.Archivado {
+    background: #fff;
+    color: #39A900;
+    border: 2px solid #39A900;
+  }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -351,4 +359,118 @@
 
   .search input::placeholder {
     color: #999;
+  }
+
+  /* --- Sidebar Menu --- */
+  /* Contenedor principal del menú lateral */
+  .sidebar-menu {
+    width: 90px;
+    background-color: var(--white);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+  }
+
+  /* Lista de elementos del menú */
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+  }
+
+  /* Enlaces de los elementos del menú */
+  .sidebar-menu .menu-item a,
+  .sidebar-menu .menu-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  /* Iconos dentro de los enlaces del menú */
+  .sidebar-menu .menu-item a i,
+  .sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: var(--primary-green);
+  }
+
+  /* Estilos para el estado hover y activo de los elementos del menú */
+  .sidebar-menu .menu-item:hover a,
+  .sidebar-menu .menu-item.active a,
+  .sidebar-menu .menu-bottom a:hover {
+    background-color: var(--primary-green);
+  }
+
+  /* Estilos para los iconos en estado hover y activo */
+  .sidebar-menu .menu-item:hover a i,
+  .sidebar-menu .menu-item.active a i,
+  .sidebar-menu .menu-bottom a:hover i {
+    color: var(--white);
+  }
+
+  /* Sección inferior del menú (ej. logout) */
+  .sidebar-menu .menu-bottom {
+    padding-top: 20px;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+  /* Definición de variables de color y tipografía para consistencia */
+  :root {
+    --primary-green: #4CB200;
+    --light-green: #e6f4e0;
+    --dark-blue: #2c3e50;
+    --light-gray: #f8f9fa;
+    --border-color: #eef0f2;
+    --text-secondary: #7f8c8d;
+    --white: #fff;
+    --progress-secondary: #a5d6a7;
+  }
+
+  /* Estilos generales del cuerpo de la página */
+  body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    background-color: var(--light-gray);
+    display: flex;
+    color: var(--dark-blue);
+  }
+
+  .header__title {
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+    gap: 0.5rem;
+  }
+
+  .backlog-title-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+  }
+
+  .backlog-title-icon svg {
+    display: block;
+    width: 2.8rem;
+    height: 2.8rem;
+    color: var(--primary-green);
+    fill: var(--primary-green);
   }
