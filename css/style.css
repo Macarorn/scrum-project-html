@@ -127,7 +127,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding-left: 50px;
+    padding-left: 30px;
   }
 
   .header {
@@ -140,8 +140,12 @@
   }
 
   .header h1 {
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: 1.6rem;
     font-weight: bold;
+  }
+
+  .header h1.header__title {
+    font-size: 2.0rem;
   }
 
   .header .epic {
@@ -455,7 +459,7 @@
   .header__title {
     display: flex;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 1.6rem; /* antes: 2.5rem */
     font-weight: bold;
     color: var(--dark-blue);
     gap: 0.5rem;
@@ -464,13 +468,348 @@
   .backlog-title-icon {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--primary-green); /* Fondo verde primary */
+    border-radius: 16px;
     margin-right: 0.5rem;
+    box-shadow: 0 2px 12px rgba(76, 178, 0, 0.10);
+    border: 2.5px solid var(--light-green, #e6f4e0); /* Borde verde claro */
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s, border 0.3s;
+    animation: pop-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
   }
 
   .backlog-title-icon svg {
-    display: block;
-    width: 2.8rem;
-    height: 2.8rem;
-    color: var(--primary-green);
-    fill: var(--primary-green);
+    width: 38px;
+    height: 38px;
+    color: #fff; /* Icono blanco */
+    fill: #fff;
+    transition: transform 0.3s, color 0.3s, fill 0.3s;
   }
+
+  .backlog-title-icon:hover,
+  .backlog-title-icon:focus {
+    box-shadow: 0 4px 24px rgba(76, 178, 0, 0.18);
+    background: var(--light-green, #e6f4e0); /* Fondo verde claro al hover */
+    border-color: var(--primary-green);      /* Borde verde primary al hover */
+    transform: scale(1.07) rotate(-4deg);
+  }
+
+  .backlog-title-icon:hover svg,
+  .backlog-title-icon:focus svg {
+    color: var(--primary-green);
+    fill: var(--primary-green); /* Icono verde primary al hover */
+    transform: scale(1.12) rotate(6deg);
+  }
+
+  @keyframes pop-in {
+    0% {
+      transform: scale(0.7) rotate(-10deg);
+      opacity: 0;
+    }
+    70% {
+      transform: scale(1.1) rotate(3deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  /* Menú contextual de acciones */
+.context-menu {
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.15);
+  min-width: 140px;
+  z-index: 100;
+  border: 4px solid var(--primary-green);
+  overflow: hidden;
+  flex-direction: column;
+  padding: 0;
+}
+
+.cell-actions {
+  position: relative;
+}
+
+.context-menu.open {
+  display: flex;
+}
+
+.context-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 600; /* semi bold */
+  background: #fff;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 0;
+  color: #222;
+}
+
+.context-menu__item i {
+  font-size: 1.3em;
+  transition: color 0.15s;
+}
+
+/* Color para Editar: verde primary */
+.context-menu__item.edit {
+  color: var(--primary-green);
+}
+.context-menu__item.edit i {
+  color: var(--primary-green);
+}
+.context-menu__item.edit:hover,
+.context-menu__item.edit:focus {
+  background: var(--primary-green);
+  color: #fff;
+}
+.context-menu__item.edit:hover i,
+.context-menu__item.edit:focus i {
+  color: #fff;
+}
+
+/* Color para Compartir */
+.context-menu__item.share {
+  color: #2980ef; /* azul */
+}
+.context-menu__item.share i {
+  color: #2980ef;
+}
+.context-menu__item.share:hover,
+.context-menu__item.share:focus {
+  background: #2980ef;
+  color: #fff;
+}
+.context-menu__item.share:hover i,
+.context-menu__item.share:focus i {
+  color: #fff;
+}
+
+/* Color para Borrar */
+.context-menu__item.delete {
+  color: #e74c3c; /* rojo */
+}
+.context-menu__item.delete i {
+  color: #e74c3c;
+}
+.context-menu__item.delete:hover,
+.context-menu__item.delete:focus {
+  background: #e74c3c;
+  color: #fff;
+}
+.context-menu__item.delete:hover i,
+.context-menu__item.delete:focus i {
+  color: #fff;
+}
+
+/* Elimina el borde blanco al hacer hover */
+.context-menu__item {
+  box-shadow: none !important;
+}
+
+/* Mejora el área clickeable de los puntos del menú contextual */
+.cell-actions .menu-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;      /* 24px icono + 8px (4px a cada lado) */
+  height: 32px;
+  margin: -4px;     /* expande el área clickeable 4px alrededor */
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.cell-actions .menu-trigger:hover,
+.cell-actions .menu-trigger:focus {
+  background: #e6f4e0; /* leve fondo verde claro al pasar el mouse */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dropdown de épicas */
+.epic-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  min-width: 260px;
+  background: #fff;
+  border: 5px solid var(--primary-green);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.15);
+  z-index: 200;
+  padding: 0.5rem 0 0.5rem 0;
+  /* Nueva animación: fade-slide */
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
+  animation: none !important; /* Elimina el rebote */
+}
+
+.epic-dropdown.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Scrollbar personalizado solo para el menú de épicas */
+.epic-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: 20px; /* Firefox: ancho 20px */
+  scrollbar-color: var(--primary-green) #fff; /* Fondo blanco */
+}
+
+/* Webkit: scrollbar personalizado y sin flechas */
+.epic-dropdown__list::-webkit-scrollbar {
+  width: 20px;
+  background: #fff; /* Fondo blanco */
+  border-radius: 8px;
+}
+.epic-dropdown__list::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 8px;
+}
+.epic-dropdown__list::-webkit-scrollbar-thumb:hover {
+  background: #388e00;
+}
+/* Oculta completamente las flechas del scrollbar en Webkit (Chrome, Opera, Edge, Safari) */
+.epic-dropdown__list::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.epic-dropdown__arrow {
+  position: absolute;
+  top: -18px;
+  left: 24px;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+}
+.epic-dropdown__arrow::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-left: 4px solid var(--primary-green);
+  border-top: 4px solid var(--primary-green);
+  transform: rotate(45deg);
+  border-radius: 3px 0 0 0;
+}
+
+.epic-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.epic-dropdown__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  font-weight: 600;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+}
+
+.epic-dropdown__item.active,
+.epic-dropdown__item:hover {
+  background: var(--primary-green);
+  color: #fff;
+}
+
+.epic-dropdown__item.active .epic-dropdown__count,
+.epic-dropdown__item:hover .epic-dropdown__count {
+  color: #fff;
+}
+
+.epic-dropdown__count {
+  font-size: 0.95rem;
+  color: #222;
+  font-weight: 400;
+}
+
+.epic-dropdown__all {
+  display: block;
+  width: 90%;
+  margin: 12px auto 0 auto;
+  padding: 12px 0;
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 3px solid var(--primary-green);
+  transition: background 0.15s, color 0.15s;
+}
+
+.epic-dropdown__all:hover,
+.epic-dropdown__all:focus {
+  background: var(--primary-green);
+  color: #fff;
+}
+
+/* Enlaza este bloque en style-backlog-historia.css también si quieres el mismo efecto en ambas vistas */
+
+/* Quita subrayado y color por defecto a los links de épicas en el dropdown */
+.epic-dropdown__item a {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+  font-size: inherit;
+  font-family: inherit;
+  display: inline-block;
+}
+
+/* Cuando la épica está activa o en hover, el link es blanco */
+.epic-dropdown__item.active a,
+.epic-dropdown__item:hover a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.row.row-link {
+  cursor: pointer;
+  transition: box-shadow 0.15s, background 0.15s;
+}
+.row.row-link:hover {
+  background: #f4fbf0; /* Verde mucho más claro */
+  box-shadow: 0 4px 16px rgba(76, 178, 0, 0.10);
+}

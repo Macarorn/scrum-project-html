@@ -1,0 +1,187 @@
+/* Tarjeta de historia de usuario estilo imagen referencia */
+.historia-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(44, 62, 80, 0.13);
+  padding: 2rem 2.2rem 1.5rem 2.2rem;
+  max-width: 1540px;
+  margin: 2rem auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-height: 340px;
+}
+
+.historia-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.historia-card__title {
+  color: #39A900;
+  font-size: 1.7rem;
+  font-weight: bold;
+  flex: 1;
+  margin-top: 0.2rem;
+}
+
+.historia-card__menu {
+  position: relative;
+  /* Alinea el menú a la derecha del botón Archivado */
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+/* Área clickeable más grande para los tres puntos */
+.historia-card__menu .menu-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: -4px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.historia-card__menu .menu-trigger:hover,
+.historia-card__menu .menu-trigger:focus {
+  background: #e6f4e0;
+}
+
+/* Tooltip a la izquierda, fuente más pequeña */
+.menu-tooltip {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  background: #555;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 6px;
+  padding: 0.5rem 1.3rem 0.5rem 1rem;
+  white-space: nowrap;
+  z-index: 300;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+  margin-right: 12px;
+  animation: fadeInTooltip 0.18s;
+  cursor: pointer;
+}
+
+.menu-tooltip::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 12px solid #555;
+}
+
+.menu-tooltip.show {
+  display: block;
+}
+
+@keyframes fadeInTooltip {
+  from { opacity: 0; transform: translateY(-50%) scale(0.95);}
+  to { opacity: 1; transform: translateY(-50%) scale(1);}
+}
+
+.status.Archivado {
+  background: #fff;
+  color: #39A900;
+  border: 1.5px solid #39A900;
+  border-radius: 999px;
+  padding: 0.18rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 1rem;
+  margin-top: 0.1rem;
+  box-shadow: none;
+  outline: none;
+}
+
+.historia-card__info {
+  display: flex;
+  gap: 2.5rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.historia-card__info > div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+}
+
+.historia-card__info b {
+  font-weight: bold;
+}
+
+.historia-card__criterios {
+  font-size: 1.08rem;
+  margin-bottom: 1.2rem;
+}
+
+.historia-card__criterios > b {
+  font-weight: bold;
+  font-size: 1.08rem;
+}
+
+.historia-card__criterios ul {
+  margin: 0.7rem 0 0 1.2rem;
+  padding-left: 1.2rem;
+}
+
+.historia-card__criterios li {
+  margin-bottom: 1.1rem;
+  line-height: 1.45;
+  font-size: 1.04rem;
+}
+
+.historia-card__footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.2rem;
+}
+
+.btn-volver {
+  background: #39A900;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.45rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+  box-shadow: none;
+}
+
+.btn-volver:hover {
+  background: #2e7d13;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .historia-card {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .historia-card__info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
