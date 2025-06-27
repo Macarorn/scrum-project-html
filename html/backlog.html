@@ -1,462 +1,372 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestor de Backlog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/sidebar-menu.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-    />
-    <!-- Favicon verde para modo claro -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      media="(prefers-color-scheme: light)"
-      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="%2339A900" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
-    />
-    <!-- Favicon blanco para modo oscuro -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      media="(prefers-color-scheme: dark)"
-      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
-    />
-  </head>
 
-  <body>
-    <!-- Sidebar component: sidebar.html -->
-    <aside class="sidebar-menu">
-      <ul>
-        <!-- Ítems del menú con iconos -->
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-menu"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-user"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-bell"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-home"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bxs-grid-alt"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-group"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-bar-chart-alt-2"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-folder"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-calendar"></i></a>
-        </li>
-        <li class="menu-item">
-          <a href="#"><i class="bx bx-video"></i></a>
-        </li>
-      </ul>
-      <!-- Menú inferior con icono de configuración -->
-      <div class="menu-bottom">
-        <a href="#"><i class="bx bx-cog"></i></a>
-      </div>
-    </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Backlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style-backlog.css" />
+  <link rel="stylesheet" href="../css/sidebar-menu.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)"
+    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="%2339A900" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>' />
+  <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)"
+    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>' />
+</head>
 
-    <main class="main">
-      <header class="header">
-        <h1 class="header__title">
-          <span class="backlog-title-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="38"
-              height="38"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"
-              ></path>
-              <path
-                d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"
-              ></path>
-            </svg>
-          </span>
-          Gestor de Backlog
-          <span
-            class="epic-container"
-            style="
+<body>
+  <!-- menú side-bar -->
+  <aside class="sidebar-menu">
+    <ul>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-menu"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-user"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-group"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bxs-grid-alt"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-bar-chart-alt-2"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-folder"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-calendar"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-video"></i></a>
+      </li>
+    </ul>
+    <!-- Menú inferior con icono de configuración -->
+    <div class="menu-bottom">
+      <a href="#"><i class="bx bx-cog"></i></a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- header y desplegable -->
+    <header class="header">
+      <h1 class="header__title">
+        <span class="backlog-title-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"></path>
+            <path
+              d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z">
+            </path>
+          </svg>
+        </span>
+        Gestor de Backlog
+        <span class="epic-container" style="
               position: relative;
               display: inline-flex;
               align-items: center;
-            "
-          >
-            <span class="epic" id="epicToggle" style="cursor: pointer">
-              <span id="epicSelectedText">Épica 1</span>
-              <svg
-                class="epic__dropdown-icon"
-                width="18"
-                height="12"
-                viewBox="0 0 15.62 10.09"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M1 1l6.81 6.81L14.62 1"
-                  stroke="#000"
-                  stroke-width="2.5"
-                  fill="none"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </span>
-            <span class="epic-dropdown" id="epicDropdown">
-              <div class="epic-dropdown__arrow"></div>
-              <ul class="epic-dropdown__list" id="epicList">
-                <li class="epic-dropdown__item active">
-                  <span>Épica 1</span>
-                  <span class="epic-dropdown__count">H. Usuario 7</span>
-                </li>
-                <li class="epic-dropdown__item">
-                  <span>Épica 2</span>
-                  <span class="epic-dropdown__count">H. Usuario 7</span>
-                </li>
-                <li class="epic-dropdown__item">
-                  <span>Épica 3</span>
-                  <span class="epic-dropdown__count">H. Usuario 3</span>
-                </li>
-                <li class="epic-dropdown__item">
-                  <span>Épica 4</span>
-                  <span class="epic-dropdown__count">H. Usuario 8</span>
-                </li>
-                <li class="epic-dropdown__item">
-                  <span>Épica 5</span>
-                  <span class="epic-dropdown__count">H. Usuario 16</span>
-                </li>
-                <li class="epic-dropdown__item">
-                  <span>Épica 6</span>
-                  <span class="epic-dropdown__count">H. Usuario 12</span>
-                </li>
-                <li class="epic-dropdown__item">
-                  <span>Épica 7</span>
-                  <span class="epic-dropdown__count">H. Usuario 7</span>
-                </li>
-              </ul>
-              <button class="epic-dropdown__all">Ver todas las Epicas</button>
-            </span>
+            ">
+          <span class="epic" id="epicToggle" style="cursor: pointer">
+            <span id="epicSelectedText">Épica 1</span>
+            <svg class="epic__dropdown-icon" width="18" height="12" viewBox="0 0 15.62 10.09"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path d="M1 1l6.81 6.81L14.62 1" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round" />
+            </svg>
           </span>
-        </h1>
-        <div class="actions">
-          <button class="btn btn-new">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 28 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M26 11H17V2C17 0.895625 16.1044 0 15 0H13C11.8956 0 11 0.895625 11 2V11H2C0.895625 11 0 11.8956 0 13V15C0 16.1044 0.895625 17 2 17H11V26C11 27.1044 11.8956 28 13 28H15C16.1044 28 17 27.1044 17 26V17H26C27.1044 17 28 16.1044 28 15V13C28 11.8956 27.1044 11 26 11Z"
-                fill="#fff"
-              />
-            </svg>
-            Nueva Historia
-          </button>
-          <div class="search">
-            <!-- search icon -->
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24.6582 21.6162L19.79 16.748C19.5703 16.5283 19.2725 16.4062 18.96 16.4062H18.1641C19.5117 14.6826 20.3125 12.5146 20.3125 10.1562C20.3125 4.5459 15.7666 0 10.1562 0C4.5459 0 0 4.5459 0 10.1562C0 15.7666 4.5459 20.3125 10.1562 20.3125C12.5146 20.3125 14.6826 19.5117 16.4062 18.1641V18.96C16.4062 19.2725 16.5283 19.5703 16.748 19.79L21.6162 24.6582C22.0752 25.1172 22.8174 25.1172 23.2715 24.6582L24.6533 23.2764C25.1123 22.8174 25.1123 22.0752 24.6582 21.6162ZM10.1562 16.4062C6.7041 16.4062 3.90625 13.6133 3.90625 10.1562C3.90625 6.7041 6.69922 3.90625 10.1562 3.90625C13.6084 3.90625 16.4062 6.69922 16.4062 10.1562C16.4062 13.6084 13.6133 16.4062 10.1562 16.4062Z"
-                fill="#39A900"
-              />
-            </svg>
-            <input type="search" placeholder="Buscar" />
-          </div>
-          <button class="btn btn-new">Sprints</button>
+          <span class="epic-dropdown" id="epicDropdown">
+            <div class="epic-dropdown__arrow"></div>
+            <ul class="epic-dropdown__list" id="epicList">
+              <li class="epic-dropdown__item active">
+                <span>Épica 1</span>
+                <span class="epic-dropdown__count">H. Usuario 7</span>
+              </li>
+              <li class="epic-dropdown__item">
+                <span>Épica 2</span>
+                <span class="epic-dropdown__count">H. Usuario 7</span>
+              </li>
+              <li class="epic-dropdown__item">
+                <span>Épica 3</span>
+                <span class="epic-dropdown__count">H. Usuario 3</span>
+              </li>
+              <li class="epic-dropdown__item">
+                <span>Épica 4</span>
+                <span class="epic-dropdown__count">H. Usuario 8</span>
+              </li>
+              <li class="epic-dropdown__item">
+                <span>Épica 5</span>
+                <span class="epic-dropdown__count">H. Usuario 16</span>
+              </li>
+              <li class="epic-dropdown__item">
+                <span>Épica 6</span>
+                <span class="epic-dropdown__count">H. Usuario 12</span>
+              </li>
+              <li class="epic-dropdown__item">
+                <span>Épica 7</span>
+                <span class="epic-dropdown__count">H. Usuario 7</span>
+              </li>
+            </ul>
+            <button class="epic-dropdown__all">Ver todas las Epicas</button>
+          </span>
+        </span>
+      </h1>
+      <div class="actions">
+        <button class="btn btn-new">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M26 11H17V2C17 0.895625 16.1044 0 15 0H13C11.8956 0 11 0.895625 11 2V11H2C0.895625 11 0 11.8956 0 13V15C0 16.1044 0.895625 17 2 17H11V26C11 27.1044 11.8956 28 13 28H15C16.1044 28 17 27.1044 17 26V17H26C27.1044 17 28 16.1044 28 15V13C28 11.8956 27.1044 11 26 11Z"
+              fill="#fff" />
+          </svg>
+          Nueva Historia
+        </button>
+        <div class="search">
+          <!-- search icon -->
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M24.6582 21.6162L19.79 16.748C19.5703 16.5283 19.2725 16.4062 18.96 16.4062H18.1641C19.5117 14.6826 20.3125 12.5146 20.3125 10.1562C20.3125 4.5459 15.7666 0 10.1562 0C4.5459 0 0 4.5459 0 10.1562C0 15.7666 4.5459 20.3125 10.1562 20.3125C12.5146 20.3125 14.6826 19.5117 16.4062 18.1641V18.96C16.4062 19.2725 16.5283 19.5703 16.748 19.79L21.6162 24.6582C22.0752 25.1172 22.8174 25.1172 23.2715 24.6582L24.6533 23.2764C25.1123 22.8174 25.1123 22.0752 24.6582 21.6162ZM10.1562 16.4062C6.7041 16.4062 3.90625 13.6133 3.90625 10.1562C3.90625 6.7041 6.69922 3.90625 10.1562 3.90625C13.6084 3.90625 16.4062 6.69922 16.4062 10.1562C16.4062 13.6084 13.6133 16.4062 10.1562 16.4062Z"
+              fill="#39A900" />
+          </svg>
+          <input type="search" placeholder="Buscar" />
         </div>
-      </header>
+        <button class="btn btn-new">Sprints</button>
+      </div>
+    </header>
+    <!-- Tabla de Backlog -->
+    <section class="table">
+      <div class="header-row">
+        <div class="cell">Historias de usuario</div>
+        <div class="cell">ID</div>
+        <div class="cell">C. aceptación</div>
+        <div class="cell">Estado</div>
+        <div class="cell">Prioridad</div>
+        <div class="cell"></div>
+      </div>
 
-      <section class="table">
-        <div class="header-row">
-          <div class="cell">Historias de usuario</div>
-          <div class="cell">ID</div>
-          <div class="cell">C. aceptación</div>
-          <div class="cell">Estado</div>
-          <div class="cell">Prioridad</div>
-          <div class="cell"></div>
-          <!-- Nueva columna vacía para los puntos -->
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Tarea 1</div>
+        <div class="cell">4567</div>
+        <div class="cell">2</div>
+        <div class="cell">
+          <button class="status Archivado">Archivado</button>
         </div>
-
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Tarea 1</div>
-          <div class="cell">4567</div>
-          <div class="cell">2</div>
-          <div class="cell">
-            <button class="status Archivado">Archivado</button>
-          </div>
-          <div class="cell">1</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+        <div class="cell">1</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Tarea 3</div>
-          <div class="cell">9843</div>
-          <div class="cell">6</div>
-          <div class="cell">
-            <button class="status Activo">Activo</button>
-          </div>
-          <div class="cell">3</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Tarea 3</div>
+        <div class="cell">9843</div>
+        <div class="cell">6</div>
+        <div class="cell">
+          <button class="status Activo">Activo</button>
+        </div>
+        <div class="cell">3</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Bug 5</div>
-          <div class="cell">9504</div>
-          <div class="cell">1</div>
-          <div class="cell">
-            <button class="status Pendiente">Pendiente</button>
-          </div>
-          <div class="cell">2</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Bug 5</div>
+        <div class="cell">9504</div>
+        <div class="cell">1</div>
+        <div class="cell">
+          <button class="status Pendiente">Pendiente</button>
+        </div>
+        <div class="cell">2</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Feature 8</div>
-          <div class="cell">1234</div>
-          <div class="cell">7</div>
-          <div class="cell">
-            <button class="status Pendiente">Pendiente</button>
-          </div>
-          <div class="cell">1</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Feature 8</div>
+        <div class="cell">1234</div>
+        <div class="cell">7</div>
+        <div class="cell">
+          <button class="status Pendiente">Pendiente</button>
+        </div>
+        <div class="cell">1</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Bug 12</div>
-          <div class="cell">9854</div>
-          <div class="cell">3</div>
-          <div class="cell">
-            <button class="status Archivado">Archivado</button>
-          </div>
-          <div class="cell">5</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Bug 12</div>
+        <div class="cell">9854</div>
+        <div class="cell">3</div>
+        <div class="cell">
+          <button class="status Archivado">Archivado</button>
+        </div>
+        <div class="cell">5</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Feature 3</div>
-          <div class="cell">9843</div>
-          <div class="cell">6</div>
-          <div class="cell">
-            <button class="status Activo">Activo</button>
-          </div>
-          <div class="cell">3</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Feature 3</div>
+        <div class="cell">9843</div>
+        <div class="cell">6</div>
+        <div class="cell">
+          <button class="status Activo">Activo</button>
+        </div>
+        <div class="cell">3</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
+      </div>
 
-        <div
-          class="row row-link"
-          onclick="window.location.href='./backlog-historia.html'"
-        >
-          <div class="cell title">Bug 2</div>
-          <div class="cell">9504</div>
-          <div class="cell">1</div>
-          <div class="cell">
-            <button class="status Pendiente">Pendiente</button>
-          </div>
-          <div class="cell">2</div>
-          <div class="cell cell-actions">
-            <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
-            <div class="context-menu">
-              <div class="context-menu__item edit">
-                <i class="bx bx-edit-alt"></i> Editar
-              </div>
-              <div class="context-menu__item share">
-                <i class="bx bx-share-alt"></i> Compartir
-              </div>
-              <div class="context-menu__item delete">
-                <i class="bx bx-trash"></i> Borrar
-              </div>
+      <div class="row row-link" onclick="window.location.href='./backlog-historia.html'">
+        <div class="cell title">Bug 2</div>
+        <div class="cell">9504</div>
+        <div class="cell">1</div>
+        <div class="cell">
+          <button class="status Pendiente">Pendiente</button>
+        </div>
+        <div class="cell">2</div>
+        <div class="cell cell-actions">
+          <i class="bx bx-dots-vertical-rounded menu-trigger"></i>
+          <div class="context-menu">
+            <div class="context-menu__item edit">
+              <i class="bx bx-edit-alt"></i> Editar
+            </div>
+            <div class="context-menu__item share">
+              <i class="bx bx-share-alt"></i> Compartir
+            </div>
+            <div class="context-menu__item delete">
+              <i class="bx bx-trash"></i> Borrar
             </div>
           </div>
         </div>
-      </section>
-    </main>
-    <script src="../js/sidebar-interactions.js"></script>
-    <script src="../js/sidebar-menu.js"></script>
-    <script src="../js/smooth-scroll.js"></script>
-    <script>
-      // Menú contextual para los tres puntos
-      document.querySelectorAll(".cell-actions").forEach((cell) => {
-        const trigger = cell.querySelector(".menu-trigger");
-        const menu = cell.querySelector(".context-menu");
-        if (trigger && menu) {
-          trigger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            // Cierra otros menús abiertos
-            document.querySelectorAll(".context-menu").forEach((m) => {
-              if (m !== menu) m.classList.remove("open");
-            });
-            menu.classList.toggle("open");
-          });
-        }
-      });
-      // Cierra el menú contextual al hacer click fuera
-      document.addEventListener("click", () => {
-        document
-          .querySelectorAll(".context-menu")
-          .forEach((menu) => menu.classList.remove("open"));
-      });
-      // Toggle del menú de épicas
-      const epicToggle = document.getElementById("epicToggle");
-      const epicDropdown = document.getElementById("epicDropdown");
-      const epicList = document.getElementById("epicList");
-      const epicSelectedText = document.getElementById("epicSelectedText");
-
-      if (epicToggle && epicDropdown && epicList && epicSelectedText) {
-        epicToggle.addEventListener("click", function (e) {
+      </div>
+    </section>
+  </main>
+  <!-- Scripts -->
+  <script src="../js/sidebar-interactions.js"></script>
+  <script src="../js/sidebar-menu.js"></script>
+  <script src="../js/smooth-scroll.js"></script>
+  <!-- Menú de épicas -->
+  <script>
+    document.querySelectorAll(".cell-actions").forEach((cell) => {
+      const trigger = cell.querySelector(".menu-trigger");
+      const menu = cell.querySelector(".context-menu");
+      if (trigger && menu) {
+        trigger.addEventListener("click", (e) => {
           e.stopPropagation();
-          epicDropdown.classList.toggle("open");
-        });
-        // Cierra el menú si se hace click fuera
-        document.addEventListener("click", function () {
-          epicDropdown.classList.remove("open");
-        });
-        // Evita que el menú se cierre si se hace click dentro
-        epicDropdown.addEventListener("click", function (e) {
-          e.stopPropagation();
-        });
-
-        // Selección de épica
-        epicList.querySelectorAll(".epic-dropdown__item").forEach((item) => {
-          item.addEventListener("click", function () {
-            // Quitar la clase active de todos
-            epicList
-              .querySelectorAll(".epic-dropdown__item")
-              .forEach((i) => i.classList.remove("active"));
-            // Poner active al seleccionado
-            this.classList.add("active");
-            // Cambiar el texto mostrado
-            epicSelectedText.textContent =
-              this.querySelector("span").textContent;
-            // Cerrar el menú
-            epicDropdown.classList.remove("open");
+          document.querySelectorAll(".context-menu").forEach((m) => {
+            if (m !== menu) m.classList.remove("open");
           });
+          menu.classList.toggle("open");
         });
       }
-    </script>
-  </body>
+    });
+    document.addEventListener("click", () => {
+      document
+        .querySelectorAll(".context-menu")
+        .forEach((menu) => menu.classList.remove("open"));
+    });
+    const epicToggle = document.getElementById("epicToggle");
+    const epicDropdown = document.getElementById("epicDropdown");
+    const epicList = document.getElementById("epicList");
+    const epicSelectedText = document.getElementById("epicSelectedText");
+
+    if (epicToggle && epicDropdown && epicList && epicSelectedText) {
+      epicToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        epicDropdown.classList.toggle("open");
+      });
+      document.addEventListener("click", function () {
+        epicDropdown.classList.remove("open");
+      });
+      epicDropdown.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+      epicList.querySelectorAll(".epic-dropdown__item").forEach((item) => {
+        item.addEventListener("click", function () {
+          epicList
+            .querySelectorAll(".epic-dropdown__item")
+            .forEach((i) => i.classList.remove("active"));
+          this.classList.add("active");
+          epicSelectedText.textContent =
+            this.querySelector("span").textContent;
+          epicDropdown.classList.remove("open");
+        });
+      });
+    }
+  </script>
+</body>
+
 </html>

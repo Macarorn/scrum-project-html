@@ -158,14 +158,11 @@
   .epic {
     display: inline-flex;
     align-items: center;
-    /* mantiene clamp() que ya tienes */
   }
 
   .epic__dropdown-icon {
     margin-left: 0.55rem;
-    /* separa icono del texto */
     flex-shrink: 0;
-    /* hereda color de .epic (currentColor) */
   }
 
   .actions {
@@ -198,7 +195,7 @@
   .table .header-row,
   .table .row {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 0.3fr; /* 6 columnas, la última más angosta */
+    grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 0.3fr;
     background: #e0e0e0;
     border-radius: 8px;
   }
@@ -365,74 +362,7 @@
     color: #999;
   }
 
-  /* --- Sidebar Menu --- */
-  /* Contenedor principal del menú lateral */
-  .sidebar-menu {
-    width: 90px;
-    background-color: var(--white);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 0;
-    box-sizing: border-box;
-    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    flex-shrink: 0;
-  }
-
-  /* Lista de elementos del menú */
-  .sidebar-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    flex-grow: 1;
-  }
-
-  /* Enlaces de los elementos del menú */
-  .sidebar-menu .menu-item a,
-  .sidebar-menu .menu-bottom a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 50px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-  }
-
-  /* Iconos dentro de los enlaces del menú */
-  .sidebar-menu .menu-item a i,
-  .sidebar-menu .menu-bottom a i {
-    font-size: 1.9rem;
-    color: var(--primary-green);
-  }
-
-  /* Estilos para el estado hover y activo de los elementos del menú */
-  .sidebar-menu .menu-item:hover a,
-  .sidebar-menu .menu-item.active a,
-  .sidebar-menu .menu-bottom a:hover {
-    background-color: var(--primary-green);
-  }
-
-  /* Estilos para los iconos en estado hover y activo */
-  .sidebar-menu .menu-item:hover a i,
-  .sidebar-menu .menu-item.active a i,
-  .sidebar-menu .menu-bottom a:hover i {
-    color: var(--white);
-  }
-
-  /* Sección inferior del menú (ej. logout) */
-  .sidebar-menu .menu-bottom {
-    padding-top: 20px;
-  }
-
+  
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
   /* Definición de variables de color y tipografía para consistencia */
@@ -459,7 +389,7 @@
   .header__title {
     display: flex;
     align-items: center;
-    font-size: 1.6rem; /* antes: 2.5rem */
+    font-size: 1.6rem;
     font-weight: bold;
     color: var(--dark-blue);
     gap: 0.5rem;
@@ -471,11 +401,11 @@
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: var(--primary-green); /* Fondo verde primary */
+    background: var(--primary-green); 
     border-radius: 16px;
     margin-right: 0.5rem;
     box-shadow: 0 2px 12px rgba(76, 178, 0, 0.10);
-    border: 2.5px solid var(--light-green, #e6f4e0); /* Borde verde claro */
+    border: 2.5px solid var(--light-green, #e6f4e0);
     transition: box-shadow 0.3s, transform 0.3s, background 0.3s, border 0.3s;
     animation: pop-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
   }
@@ -483,7 +413,7 @@
   .backlog-title-icon svg {
     width: 38px;
     height: 38px;
-    color: #fff; /* Icono blanco */
+    color: #fff; 
     fill: #fff;
     transition: transform 0.3s, color 0.3s, fill 0.3s;
   }
@@ -491,15 +421,15 @@
   .backlog-title-icon:hover,
   .backlog-title-icon:focus {
     box-shadow: 0 4px 24px rgba(76, 178, 0, 0.18);
-    background: var(--light-green, #e6f4e0); /* Fondo verde claro al hover */
-    border-color: var(--primary-green);      /* Borde verde primary al hover */
+    background: var(--light-green, #e6f4e0); 
+    border-color: var(--primary-green); 
     transform: scale(1.07) rotate(-4deg);
   }
 
   .backlog-title-icon:hover svg,
   .backlog-title-icon:focus svg {
     color: var(--primary-green);
-    fill: var(--primary-green); /* Icono verde primary al hover */
+    fill: var(--primary-green); 
     transform: scale(1.12) rotate(6deg);
   }
 
@@ -550,7 +480,7 @@
   gap: 10px;
   padding: 12px 18px;
   cursor: pointer;
-  font-weight: 600; /* semi bold */
+  font-weight: 600; 
   background: #fff;
   transition: background 0.15s, color 0.15s;
   border: none;
@@ -584,7 +514,7 @@
 
 /* Color para Compartir */
 .context-menu__item.share {
-  color: #2980ef; /* azul */
+  color: #2980ef; 
 }
 .context-menu__item.share i {
   color: #2980ef;
@@ -601,7 +531,7 @@
 
 /* Color para Borrar */
 .context-menu__item.delete {
-  color: #e74c3c; /* rojo */
+  color: #e74c3c; 
 }
 .context-menu__item.delete i {
   color: #e74c3c;
@@ -626,9 +556,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;      /* 24px icono + 8px (4px a cada lado) */
+  width: 32px;  
   height: 32px;
-  margin: -4px;     /* expande el área clickeable 4px alrededor */
+  margin: -4px; 
   cursor: pointer;
   border-radius: 50%;
   transition: background 0.15s;
@@ -636,7 +566,7 @@
 
 .cell-actions .menu-trigger:hover,
 .cell-actions .menu-trigger:focus {
-  background: #e6f4e0; /* leve fondo verde claro al pasar el mouse */
+  background: #e6f4e0;
 }
 
 html {
@@ -656,12 +586,11 @@ html {
   box-shadow: 0 4px 24px rgba(44, 62, 80, 0.15);
   z-index: 200;
   padding: 0.5rem 0 0.5rem 0;
-  /* Nueva animación: fade-slide */
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
   transition: opacity 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
-  animation: none !important; /* Elimina el rebote */
+  animation: none !important; 
 }
 
 .epic-dropdown.open {
@@ -678,14 +607,14 @@ html {
   padding: 0;
   max-height: 320px;
   overflow-y: auto;
-  scrollbar-width: 20px; /* Firefox: ancho 20px */
-  scrollbar-color: var(--primary-green) #fff; /* Fondo blanco */
+  scrollbar-width: 20px;
+  scrollbar-color: var(--primary-green) #fff;
 }
 
 /* Webkit: scrollbar personalizado y sin flechas */
 .epic-dropdown__list::-webkit-scrollbar {
   width: 20px;
-  background: #fff; /* Fondo blanco */
+  background: #fff; 
   border-radius: 8px;
 }
 .epic-dropdown__list::-webkit-scrollbar-thumb {
@@ -785,8 +714,6 @@ html {
   color: #fff;
 }
 
-/* Enlaza este bloque en style-backlog-historia.css también si quieres el mismo efecto en ambas vistas */
-
 /* Quita subrayado y color por defecto a los links de épicas en el dropdown */
 .epic-dropdown__item a {
   color: var(--primary-green);
@@ -810,6 +737,6 @@ html {
   transition: box-shadow 0.15s, background 0.15s;
 }
 .row.row-link:hover {
-  background: #f4fbf0; /* Verde mucho más claro */
+  background: #f4fbf0;
   box-shadow: 0 4px 16px rgba(76, 178, 0, 0.10);
 }

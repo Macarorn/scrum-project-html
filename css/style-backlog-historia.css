@@ -31,7 +31,6 @@
 
 .historia-card__menu {
   position: relative;
-  /* Alinea el menú a la derecha del botón Archivado */
   display: flex;
   align-items: center;
   margin-left: 0.5rem;

@@ -5,7 +5,7 @@
     box-shadow: 0 6px 24px rgba(44, 62, 80, 0.13);
     padding: 2rem 2.2rem 1.5rem 2.2rem;
     width: 100%;
-    max-width: 1540px; /* Asegura el ancho máximo */
+    max-width: 1540px;
     min-width: 320px;
     margin: 2rem auto;
     position: relative;
@@ -33,7 +33,6 @@
   
   .historia-card__menu {
     position: relative;
-    /* Alinea el menú a la derecha del botón Archivado */
     display: flex;
     align-items: center;
     margin-left: 0.5rem;
@@ -212,7 +211,7 @@
     border-radius: 7px;
     padding: 0.3rem 0.7rem;
     margin-left: 0.3rem;
-    width: 12ch; /* Ancho por defecto para ID */
+    width: 12ch; 
     outline: none;
     transition: background 0.18s, box-shadow 0.18s;
   }
@@ -223,7 +222,7 @@
   }
   
   .edit-prioridad {
-    width: 6ch; /* Más angosto para el campo Prioridad */
+    width: 6ch;
   }
   
   .required {

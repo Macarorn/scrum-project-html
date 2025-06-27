@@ -1,59 +1,67 @@
-/* .sidebar-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 70px;
+/* --- Sidebar Menu --- */
+/* Contenedor principal del menú lateral */
+.sidebar-menu {
+    width: 90px;
+    background-color: var(--white);
     height: 100vh;
-    background: #fff;
-    border-right: 2px solid #198754;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 100;
-    box-shadow: 2px 0 16px #19875411;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
 }
 
+/* Lista de elementos del menú */
 .sidebar-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    margin-top: 24px;
+    gap: 15px;
+    flex-grow: 1;
 }
 
-.menu-item {
-    width: 48px;
-    height: 48px;
+/* Enlaces de los elementos del menú */
+.sidebar-menu .menu-item a,
+.sidebar-menu .menu-bottom a {
     display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 14px;
-    transition: background 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    position: relative;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
-.menu-item .icon {
-    color: #198754;
-    font-size: 2rem;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Iconos dentro de los enlaces del menú */
+.sidebar-menu .menu-item a i,
+.sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: var(--primary-green);
 }
 
-.menu-item.active,
-.menu-item:hover,
-.menu-item:focus {
-    background: #198754;
-    box-shadow: 0 4px 16px #19875433;
+/* Estilos para el estado hover y activo de los elementos del menú */
+.sidebar-menu .menu-item:hover a,
+.sidebar-menu .menu-item.active a,
+.sidebar-menu .menu-bottom a:hover {
+    background-color: var(--primary-green);
 }
-.menu-item.active .icon,
-.menu-item:hover .icon,
-.menu-item:focus .icon {
-    color: #fff;
-} */
+
+/* Estilos para los iconos en estado hover y activo */
+.sidebar-menu .menu-item:hover a i,
+.sidebar-menu .menu-item.active a i,
+.sidebar-menu .menu-bottom a:hover i {
+    color: var(--white);
+}
+
+/* Sección inferior del menú (ej. logout) */
+.sidebar-menu .menu-bottom {
+    padding-top: 20px;
+}
