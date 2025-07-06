@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metricas Dashboard</title>
+    <link rel="stylesheet" href="../css/metricas.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- menú side-bar (NO TOCAR) -->
+      <aside class="sidebar-menu">
+        <ul>
+          <li class="menu-item">
+            <a href="#"><i class="bx bx-menu"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./equipo.html"><i class="bx bx-group"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+          </li>
+          <li class="menu-item active">
+            <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+          </li>
+          <li class="menu-item">
+            <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+          </li>
+        </ul>
+        <div class="menu-bottom">
+          <a href="#"><i class="bx bx-cog"></i></a>
+        </div>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="main-content">
+        <div class="header">
+          <h1>Métricas del Proyecto</h1>
+          <p>Resumen del rendimiento de los Sprints</p>
+        </div>
+
+        <!-- NUEVA SECCIÓN DE RESUMEN -->
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="card-icon icon-sprint">
+              <i class="bx bx-run"></i>
+            </div>
+            <div class="card-info">
+              <h2>Sprint 10</h2>
+              <p>Sprint Actual</p>
+              <span>En progreso</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="card-icon icon-tasks">
+              <i class="bx bx-list-check"></i>
+            </div>
+            <div class="card-info">
+              <h2>45</h2>
+              <p>Tareas Totales</p>
+              <span>+5 desde ayer</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="card-icon icon-velocity">
+              <i class="bx bxs-zap"></i>
+            </div>
+            <div class="card-info">
+              <h2>90%</h2>
+              <p>Velocidad Actual</p>
+              <span>-2% vs Sprint 9</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="card-icon icon-bugs">
+              <i class="bx bx-bug"></i>
+            </div>
+            <div class="card-info">
+              <h2>3</h2>
+              <p>Bugs Críticos</p>
+              <span>+1 desde ayer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card large">
+            <div class="chart-header">
+              <h3>Comparativa Desarrollo de Sprints</h3>
+              <div class="chart-filters">
+                <select id="sprint1-select" class="sprint-select">
+                  <option value="sprint7">Sprint 7</option>
+                  <option value="sprint8">Sprint 8</option>
+                </select>
+                <select id="sprint2-select" class="sprint-select">
+                  <option value="sprint9" selected>Sprint 9</option>
+                  <option value="sprint10">Sprint 10</option>
+                </select>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="comparativaSprintsChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Estado del Sprint Actual</h3>
+            <div class="chart-container">
+              <canvas id="sprintActualChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Historial de Velocidad</h3>
+            <div class="chart-container">
+              <canvas id="velocidadChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Distribución de Tareas</h3>
+            <div class="chart-container">
+              <canvas id="distribucionTareasChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Progreso del Proyecto</h3>
+            <div class="chart-with-summary">
+              <div class="summary-chart-container">
+                <canvas id="sprintsTerminadosChart"></canvas>
+                <div class="summary-text">
+                  <span>66%</span>
+                </div>
+              </div>
+              <div class="summary-details">
+                <div class="detail-item">
+                  <p>Sprints Terminados</p>
+                  <strong>8 de 12</strong>
+                </div>
+                <div class="detail-item">
+                  <p>Próxima Entrega</p>
+                  <strong>3 Semanas</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../js/metricas.js"></script>
+  </body>
+</html>

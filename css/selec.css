@@ -1,0 +1,220 @@
+/**
+ * @file selec.css
+ * @description Diseño de lujo "Aurora" con tarjeta interactiva estática.
+ * @version 7.0.0
+ * @date 25-06-2025
+ */
+
+/* === IMPORTACIONES Y VARIABLES === */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+    --primary-green: #4CAF50;
+    --dark-green: #388E3C;
+    --accent-blue: #2979FF;
+    --text-dark: #1a202c;
+    --text-light: #5a677b;
+    --card-border: rgba(255, 255, 255, 0.2);
+    --input-bg: rgba(240, 242, 245, 0.7);
+}
+
+/* === ESTILOS GENERALES Y FONDO "AURORA" === */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+    font-family: 'DM Sans', Arial, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: 
+        radial-gradient(circle at 15% 25%, var(--primary-green), transparent 40%),
+        radial-gradient(circle at 85% 75%, var(--accent-blue), transparent 40%);
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: aurora-flow 20s infinite linear;
+    z-index: -1;
+}
+
+.scrum-icon {
+    display: none; /* Ocultamos los iconos para no sobrecargar el fondo aurora */
+}
+
+/* === TARJETA PRINCIPAL (DISEÑO DE LUJO) === */
+.form-card {
+    width: 80vw;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(40px) saturate(180%);
+    border-radius: 32px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 50px 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* === CABECERA DEL FORMULARIO === */
+.form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#tipo-proyecto-icon-container {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    transition: all 0.4s cubic-bezier(.39,.58,.57,1);
+}
+
+#tipo-proyecto-icon-container.icon-active {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+.form-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(45deg, var(--text-dark), #4a5568);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+/* === ESTRUCTURA Y CAMPOS DEL FORMULARIO === */
+.project-form {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.form-left, .form-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 250px;
+}
+
+.form-label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.form-input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+
+.form-input:focus {
+    border-color: var(--primary-green);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+}
+
+#integrantes.form-input {
+    max-width: 120px;
+}
+
+/* === BOTÓN DE ACCIÓN (CON EFECTO DE LUZ) === */
+.next-btn {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    padding: 16px 40px;
+    background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(56, 142, 60, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.next-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(56, 142, 60, 0.35);
+}
+
+.next-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.8s cubic-bezier(.25,.8,.25,1);
+}
+
+.next-btn:hover::after {
+    left: 150%;
+}
+
+/* === ANIMACIÓN DEL ICONO === */
+.tipo-proyecto-animated-icon {
+    font-size: 3.5rem;
+    color: var(--dark-green); 
+    animation: popIn 0.6s cubic-bezier(.39,.58,.57,1);
+    transition: font-size 0.4s ease;
+}
+
+.icon-active .tipo-proyecto-animated-icon {
+    font-size: 5rem;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.2) rotate(-45deg); opacity: 0; }
+    70% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* === ANIMACIÓN DE FONDO === */
+@keyframes aurora-flow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

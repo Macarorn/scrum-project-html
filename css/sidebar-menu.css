@@ -1,21 +1,36 @@
-/* --- Sidebar Menu --- */
-/* Contenedor principal del menú lateral */
+
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+:root {
+    /* Paleta de colores del sistema Scrum */
+    --primary-green: #4CB200;
+    --dark-green: #388E3C;
+    --accent-gold: #FFC107;
+    --light-green-bg: #EDF7ED;
+    --border-green: #C8E6C9;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+}
+
 .sidebar-menu {
     width: 90px;
-    background-color: var(--white);
+    background-color: var(--card-bg); /* Usamos el fondo de tarjeta para consistencia */
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px 0;
     box-sizing: border-box;
-    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     flex-shrink: 0;
+    border-right: 1px solid var(--border-green); /* Usamos el borde verde del tema */
+    z-index: 1000; /* Aseguramos que esté por encima de otros elementos */
 }
 
-/* Lista de elementos del menú */
 .sidebar-menu ul {
     list-style: none;
     padding: 0;
@@ -27,7 +42,6 @@
     flex-grow: 1;
 }
 
-/* Enlaces de los elementos del menú */
 .sidebar-menu .menu-item a,
 .sidebar-menu .menu-bottom a {
     display: flex;
@@ -37,31 +51,49 @@
     height: 50px;
     border-radius: 10px;
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Iconos dentro de los enlaces del menú */
 .sidebar-menu .menu-item a i,
 .sidebar-menu .menu-bottom a i {
     font-size: 1.9rem;
-    color: var(--primary-green);
+    color: var(--primary-green); /* Color principal para los iconos */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Estilos para el estado hover y activo de los elementos del menú */
 .sidebar-menu .menu-item:hover a,
 .sidebar-menu .menu-item.active a,
 .sidebar-menu .menu-bottom a:hover {
-    background-color: var(--primary-green);
+    background-color: var(--primary-green); /* Fondo verde al pasar el mouse o si está activo */
 }
 
-/* Estilos para los iconos en estado hover y activo */
 .sidebar-menu .menu-item:hover a i,
 .sidebar-menu .menu-item.active a i,
 .sidebar-menu .menu-bottom a:hover i {
-    color: var(--white);
+    color: var(--card-bg); /* Iconos blancos al pasar el mouse */
+    transform: scale(1.1); /* Efecto de zoom sutil */
 }
 
-/* Sección inferior del menú (ej. logout) */
 .sidebar-menu .menu-bottom {
     padding-top: 20px;
+}
+
+/* Contenedor principal para alinear el menú y el contenido */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+/* El contenido principal debe ser flexible para ocupar el espacio restante */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Aseguramos que el contenido principal pueda hacer scroll si es necesario */
+    overflow-y: auto;
+    display: grid;
+    place-items: center;
+    width: 100%;
 }

@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Definición de variables de color y tipografía para consistencia */
+:root {
+    --primary-green: #4CB200;
+    --light-green: #e6f4e0;
+    --dark-blue: #2c3e50;
+    --light-gray: #f8f9fa;
+    --border-color: #eef0f2;
+    --text-secondary: #7f8c8d;
+    --white: #fff;
+    --progress-secondary: #a5d6a7;
+}
+
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    background-color: var(--light-gray);
+    display: flex;
+    color: var(--dark-blue);
+}
+
+/* --- Sidebar Menu --- */
+/* Contenedor principal del menú lateral */
+.sidebar-menu {
+    width: 90px;
+    background-color: var(--white);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+}
+
+/* Lista de elementos del menú */
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+/* Enlaces de los elementos del menú */
+.sidebar-menu .menu-item a,
+.sidebar-menu .menu-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+/* Iconos dentro de los enlaces del menú */
+.sidebar-menu .menu-item a i,
+.sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: var(--primary-green);
+}
+
+/* Estilos para el estado hover y activo de los elementos del menú */
+.sidebar-menu .menu-item:hover a,
+.sidebar-menu .menu-item.active a,
+.sidebar-menu .menu-bottom a:hover {
+    background-color: var(--primary-green);
+}
+
+/* Estilos para los iconos en estado hover y activo */
+.sidebar-menu .menu-item:hover a i,
+.sidebar-menu .menu-item.active a i,
+.sidebar-menu .menu-bottom a:hover i {
+    color: var(--white);
+}
+
+/* Sección inferior del menú (ej. logout) */
+.sidebar-menu .menu-bottom {
+    padding-top: 20px;
+}
+
+/* --- Main Container --- */
+/* Contenedor principal del contenido de la página */
+.main-container {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+/* --- Page Header --- */
+/* Cabecera de la página */
+.page-header {
+    margin-bottom: 30px;
+}
+
+/* Título principal de la página */
+.page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+/* --- Project Card --- */
+/* Tarjeta principal que contiene la información del proyecto */
+.project-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* --- Edit Button --- */
+/* Botón para editar la información del proyecto */
+.edit-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--light-gray);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover para el botón de editar */
+.edit-btn:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* --- Project Header --- */
+/* Cabecera de la tarjeta del proyecto */
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Project Icon --- */
+/* Icono principal del proyecto */
+.project-icon {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--light-green), #f0f9eb);
+    border-radius: 28px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 25px rgba(76, 178, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover para el icono del proyecto */
+.project-icon:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo del icono (FontAwesome, etc.) */
+.project-icon i {
+    font-size: 5.5rem;
+    color: var(--primary-green);
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+/* --- Project Info --- */
+/* Contenedor de la información detallada del proyecto */
+.project-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Etiqueta de cada campo de información */
+.info-field label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Campo de entrada de texto (editable) */
+.info-field input {
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    padding: 4px 0;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo del campo de entrada al obtener foco */
+.info-field input:focus {
+    outline: none;
+    border-bottom-color: var(--primary-green);
+}
+
+/* --- Project Body --- */
+/* Cuerpo de la tarjeta del proyecto, contiene progreso y equipo */
+.project-body {
+    display: flex;
+    gap: 40px;
+    padding-top: 25px;
+}
+
+/* --- Progress Section --- */
+/* Sección que muestra el progreso del proyecto */
+.progress-section {
+    text-align: center;
+}
+
+.progress-section h3, .team-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: conic-gradient(var(--primary-green) calc(var(--progress) * 1%), var(--border-color) 0);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para el círculo de progreso */
+.progress-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Círculo interior para dar efecto de grosor */
+.progress-circle-inner {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #f5f7fa);
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 4px 8px rgba(44, 62, 80, 0.08);
+    border: 1px solid var(--white);
+}
+
+/* Texto del porcentaje de progreso */
+.progress-circle-inner span {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(45deg, var(--primary-green), #3a8a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+/* --- Team Section --- */
+/* Sección que muestra los miembros del equipo */
+.team-section {
+    flex-grow: 1;
+}
+
+/* Contenedor de los miembros del equipo */
+.team-members {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada miembro del equipo */
+.member {
+    text-align: center;
+}
+
+/* Imagen (avatar) del miembro */
+.member img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+
+/* Nombre del miembro */
+.member span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Botón para ver más miembros del equipo */
+.team-more-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px dashed var(--text-secondary);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Añadido para quitar el subrayado */
+}
+
+.team-more-btn i {
+    font-size: 1.6rem; /* Tamaño de icono ajustado */
+}
+
+/* Efecto hover para el botón de ver más */
+.team-more-btn:hover {
+    background: var(--light-green);
+    color: var(--primary-green);
+    border-style: solid;
+}
+
+/* --- Team Actions --- */
+/* Contenedor para los botones de acción del equipo */
+.team-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo base para los botones de equipo */
+.btn-team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Botón para añadir miembro */
+.btn-team.add {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+/* Efecto hover para el botón de añadir miembro */
+.btn-team.add:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+/* Botón para eliminar miembro */
+.btn-team.remove {
+    background-color: #fee2e2;
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+/* Efecto hover para el botón de eliminar miembro */
+.btn-team.remove:hover {
+    background-color: #ef4444;
+    color: var(--white);
+}
+
+/* --- Other Projects Section --- */
+/* Cabecera de la sección de otros proyectos */
+.other-projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Título de la sección */
+.other-projects-header h2 {
+    font-size: 1.5rem;
+}
+
+/* Botón para añadir un nuevo proyecto */
+.add-project-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover para el botón de añadir proyecto */
+.add-project-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* --- Small Project Cards --- */
+/* Grid para mostrar las tarjetas de otros proyectos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Estilo de las tarjetas pequeñas de proyecto */
+.small-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto hover para las tarjetas pequeñas */
+.small-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    border-color: var(--primary-green);
+}
+
+/* Cabecera de la tarjeta pequeña */
+.small-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Equipo en la tarjeta pequeña */
+.small-card-team {
+    display: flex;
+    align-items: center;
+}
+
+/* Avatares del equipo en la tarjeta pequeña */
+.small-card-team img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    margin-left: -12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Primer avatar sin margen izquierdo */
+.small-card-team img:first-child {
+    margin-left: 0;
+}
+
+/* Indicador de más miembros (+N) */
+.avatar-plus {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-left: -12px;
+    border: 3px solid var(--white);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Icono de opciones en la cabecera de la tarjeta */
+.small-card-header > i {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para el icono de opciones */
+.small-card-header > i:hover {
+    color: var(--primary-green);
+}
+
+/* Cuerpo de la tarjeta pequeña */
+.small-card-body {
+    flex-grow: 1;
+}
+
+/* Título del proyecto en la tarjeta pequeña */
+.small-card-body .small-card-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 8px 0;
+}
+
+/* Etiqueta de la épica en la tarjeta pequeña */
+.small-card-body .small-card-epic {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--primary-green);
+    background: var(--light-green);
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Pie de la tarjeta pequeña */
+.small-card-footer {
+    margin-top: 20px;
+}
+
+/* --- Progress Bars --- */
+/* Barra de progreso dual (ej. tareas completadas vs. en progreso) */
+.dual-progress {
+    display: flex;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--border-color);
+}
+
+/* Barra de progreso pequeña (primaria) */
+.progress-bar-sm {
+    background: var(--primary-green);
+}
+
+/* Barra de progreso pequeña (secundaria) */
+.progress-bar-sm.secondary {
+    background: var(--progress-secondary);
+}

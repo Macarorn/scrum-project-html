@@ -1,0 +1,478 @@
+/* Variables para colores principales */
+:root {
+  --white: #fff;
+  --primary-green: #39A900;
+}
+
+/* --- Sidebar Menu --- */
+/* Contenedor principal del menú lateral */
+.sidebar-menu {
+    width: 80px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    height: 768px;
+    border-radius: 0;
+}
+
+/* Lista de elementos del menú */
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+/* Enlaces de los elementos del menú */
+.sidebar-menu .menu-item a,
+.sidebar-menu .menu-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+/* Iconos dentro de los enlaces del menú */
+.sidebar-menu .menu-item a i,
+.sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: var(--primary-green);
+}
+
+/* Estilos para el estado hover y activo de los elementos del menú */
+.sidebar-menu .menu-item:hover a,
+.sidebar-menu .menu-item.active a,
+.sidebar-menu .menu-bottom a:hover {
+    background-color: var(--primary-green);
+}
+
+/* Estilos para los iconos en estado hover y activo */
+.sidebar-menu .menu-item:hover a i,
+.sidebar-menu .menu-item.active a i,
+.sidebar-menu .menu-bottom a:hover i {
+    color: var(--white);
+}
+
+/* Sección inferior del menú (ej. logout) */
+.sidebar-menu .menu-bottom {
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+/* perfil-personal.css: Estilos exclusivos para la página de perfil personal */
+body {
+  background: #EDEDED;
+  font-size: 14px;
+  width: 1366px;
+  height: 768px;
+  min-width: 1366px;
+  min-height: 768px;
+  max-width: 1366px;
+  max-height: 768px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.container {
+  width: 1366px;
+  height: 768px;
+  margin: 0 auto;
+  position: relative;
+  background: #EDEDED;
+  overflow: hidden;
+  box-shadow: 0 0 24px 0 rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: row;
+  padding-top: 48px;
+}
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 80px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0 0 0;
+  z-index: 20;
+  justify-content: flex-start;
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.10);
+}
+.sidebar .icon {
+  width: 44px;
+  height: 44px;
+  margin: 8px 0;
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.sidebar .icon .material-icons {
+  font-size: 24px;
+  color: #39A900;
+  display: block;
+  line-height: 1;
+}
+.sidebar .icon.selected {
+  background: #39A900;
+}
+.sidebar .icon.selected .material-icons {
+  color: #fff;
+}
+.sidebar .icon.settings {
+  margin-top: auto;
+  margin-bottom: 18px;
+}
+.sidebar .icon:hover:not(.selected) {
+  background: #EDEDED;
+}
+.sidebar .icon:hover:not(.selected) .material-icons {
+  color: #39A900;
+}
+.main-content {
+  margin-left: 50px;
+  margin-top: 62px;       /* ↑ Cambiado de 20px a 110px para bajar el contenedor */
+  padding: 0;              /* ↓ Eliminado padding superior de 20px */
+  display: flex;           /* ← Mantenido */
+  flex-direction: row;     /* ← Mantenido */
+  gap: 18px;               /* ← Mantenido */
+  width: calc(100% - 120px); /* ↑ Más preciso que width: 100% */
+  height: auto;            /* ↑ Cambiado de 100% a auto (para mejor adaptación) */
+  align-items: flex-start; 
+  margin-top: calc(110px + 20px);
+  transform: translateY(0);/* ← Nuevo: asegura alineación superior */
+}
+.profile-user-side {
+  width: 340px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 32px 0 32px 0;
+  margin-right: 32px;
+  height: 670px;
+  margin-top: 0;
+}
+.profile-user-card {
+  width: 900px;
+  min-height: 670px;
+  margin: 0;
+  padding: 36px ;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  margin-top: 0;
+}
+.profile-user-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.profile-user-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 210px;
+  height: 210px;
+  margin-right: 32px;
+  border-radius: 50%;
+  background: #EDEDED;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.profile-user-pic svg {
+  width: 210px;
+  height: 210px;
+  display: block;
+}
+.profile-user-pic input[type="file"] {
+  display: none;
+}
+.profile-user-pic:hover::after {
+  content: "Subir foto";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(57,169,0,0.8);
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  padding: 8px 0;
+}
+.profile-user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.profile-user-info-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.profile-user-info-row input {
+  border: 1.5px solid #39A900;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  color: #00304D;
+  background: #F8F8F8;
+  outline: none;
+  width: 100%;
+  transition: border 0.2s;
+}
+.profile-user-info-row input:disabled {
+  color: #B6B6C6;
+  background: #F8F8F8;
+}
+.profile-user-info-row label {
+  font-size: 15px;
+  color: #00304D;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: block;
+}
+.profile-user-info-row .input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.profile-user-privacy {
+  margin: 18px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.profile-user-privacy .privacy-title {
+  font-weight: 700;
+  color: #00304D;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.profile-user-privacy .privacy-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+.profile-user-privacy .privacy-option .switch {
+  width: 36px; height: 20px;
+  background: #8ECE6E;
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.profile-user-privacy .privacy-option .switch input {
+  display: none;
+}
+.profile-user-privacy .privacy-option .slider {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  background: #39A900;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+.profile-user-privacy .privacy-option .switch input:checked + .slider {
+  left: 18px;
+  background: #00304D;
+}
+.profile-user-privacy .privacy-desc {
+  font-size: 11px;
+  color: #333;
+  margin-left: 46px;
+  margin-bottom: 2px;
+}
+.profile-user-privacy .privacy-excerpt {
+  font-size: 11px;
+  color: #39A900;
+  margin-left: 46px;
+  margin-bottom: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.profile-user-privacy .privacy-public {
+  color: #888;
+}
+.profile-user-tabs {
+  display: flex;
+  gap: 0;
+  margin: 10px 0 0 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid #EDEDED;
+  background: #F8F8F8;
+  width: 100%;
+}
+.profile-user-tab,
+.profile-user-actions .save-btn {
+  background: #fff;
+  color: #39A900;
+  border: 2px solid #39A900;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  padding: 7px 22px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+}
+.profile-user-tab.active,
+.profile-user-actions .save-btn.active,
+.profile-user-tab:hover,
+.profile-user-actions .save-btn:hover {
+  background: #39A900;
+  color: #fff;
+  border: 2px solid #39A900;
+}
+.profile-user-tab {
+  margin-right: 8px;
+  padding: 7px 22px;
+  min-width: 120px;
+}
+.profile-user-tab:last-child {
+  margin-right: 0;
+}
+.profile-user-docs {
+  margin-top: 0;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+  padding: 10px 6px 6px 6px;
+  font-size: 11px;
+  color: #333;
+  min-height: 30px;
+}
+.profile-user-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+.profile-user-actions .save-btn {
+  background: #39A900;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  padding: 7px 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(57,169,0,0.10);
+}
+.profile-user-actions .save-btn:hover {
+  background: #00304D;
+}
+.profile-user-edit-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #EDEDED;
+  border-radius: 8px;
+  border: none;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #00304D;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+.profile-user-edit-btn svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+}
+.profile-user-edit-btn:hover {
+  background: #39A900;
+  color: #fff;
+}
+.profile-user-edit-btn:hover svg path {
+  fill: #fff;
+}
+.profile-user-upload {
+  margin-left: 8px;
+  color: #00304D;
+  font-size: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.profile-user-upload:hover {
+  color: #39A900;
+}
+.profile-data-btn {
+  background: #fff;
+  color: #00304D;
+  border: 1.5px solid #39A900;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  padding: 7px 12px;
+  min-width: 320px;
+  max-width: 520px;
+  text-align: left;
+  outline: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  cursor: text;
+  white-space: pre-wrap;
+}
+.profile-data-btn:focus, .profile-data-btn:hover {
+  background: #EDEDED;
+  border: 1.5px solid #00304D;
+  color: #00304D;
+}
+.element.syle {
+  margin: 200px auto 0 auto;
+}
+@media (max-width: 1366px), (max-height: 768px) {
+  body, .container {
+    width: 100vw;
+    height: 100vh;
+    min-width: 320px;
+    min-height: 480px;
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+}

@@ -1,0 +1,369 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* --- ESTILOS GENERALES DEL CUERPO --- */
+body {
+    background: #f6faf7; /* Fondo verde muy claro */
+    font-family: 'DM Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* --- MENÚ LATERAL (SIDEBAR) --- */
+.sidebar-menu {
+    width: 90px;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    position: sticky; /* Se mantiene fijo al hacer scroll */
+    top: 0;
+    flex-shrink: 0;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+/* Estilos para los enlaces del menú */
+.sidebar-menu .menu-item a,
+.sidebar-menu .menu-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+/* Estilos para los iconos del menú */
+.sidebar-menu .menu-item a i,
+.sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: #4CB200;
+    transition: color 0.2s ease;
+}
+
+/* Efecto hover y estado activo para los elementos del menú */
+.sidebar-menu .menu-item:hover a,
+.sidebar-menu .menu-item.active a,
+.sidebar-menu .menu-bottom a:hover {
+    background-color: #4CB200;
+}
+
+.sidebar-menu .menu-item:hover a i,
+.sidebar-menu .menu-item.active a i,
+.sidebar-menu .menu-bottom a:hover i {
+    color: #fff;
+}
+
+.sidebar-menu .menu-bottom {
+    padding-top: 20px;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.buscar-container {
+    flex-grow: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* --- CABECERA PRINCIPAL --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.main-title i {
+    color: #4CB200;
+    background-color: #f0f9eb;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 2.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Línea decorativa debajo del título */
+.main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #5ddc0a, #4CB200);
+    border-radius: 3px;
+}
+
+/* --- ACCIONES PRINCIPALES (BÚSQUEDA Y BOTONES) --- */
+.main-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+    font-size: 1.2rem;
+}
+
+.search-wrapper input {
+    border: 1px solid #dce1e4;
+    border-radius: 10px;
+    padding: 10px 14px 10px 40px; /* Espacio para el icono */
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 220px;
+}
+
+.search-wrapper input:focus {
+    border-color: #4CB200;
+    box-shadow: 0 0 0 3px rgba(76, 178, 0, 0.15); /* Resaltado al enfocar */
+}
+
+/* --- BOTONES --- */
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #4CB200;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #44a000;
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* --- CUADRÍCULA DE PROYECTOS --- */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Diseño responsivo */
+    gap: 28px;
+    width: 100%;
+}
+
+/* --- TARJETA DE PROYECTO --- */
+.card {
+    background: #fff;
+    border: 1px solid #eef0f2;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: #4CB200;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.card-sprint {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    background-color: #f4f6f8;
+    padding: 3px 10px;
+    border-radius: 15px;
+    align-self: flex-start;
+}
+
+.card-menu-btn {
+    background: none;
+    border: none;
+    color: #95a5a6;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* --- BARRA DE PROGRESO --- */
+.card-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-value {
+    height: 100%;
+    background: linear-gradient(90deg, #5ddc0a, #4CB200);
+    border-radius: 8px;
+}
+
+.progress-percent {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #34495e;
+}
+
+/* --- PIE DE LA TARJETA --- */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f2f5;
+    padding-top: 16px;
+    margin-top: auto; /* Empuja el pie hacia abajo */
+}
+
+.card-team {
+    display: flex;
+    align-items: center;
+}
+
+/* --- AVATARES DEL EQUIPO --- */
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+    margin-left: -10px; /* Superposición de avatares */
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.avatar-plus {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #eef9e8;
+    color: #4CB200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-left: -10px;
+    border: 2px solid #fff;
+}
+
+.card-date {
+    font-size: 0.8rem;
+    color: #27ae60;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDAD --- */
+@media (max-width: 1000px) {
+    .proyectos-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .buscar-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn-empezar {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-empezar:focus,
+.btn-empezar:active {
+    color: #fff;
+  outline: none;
+  box-shadow: none;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos y configuración del documento -->
+    <meta charset="UTF-8">
+    <title>Buscar Proyectos</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <link rel="stylesheet" href="../css/buscar.css"> <!-- Estilos específicos para la página de búsqueda -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> <!-- Iconos de Boxicons -->
+</head>
+<body>
+    <!-- Fondo de la página -->
+    <div class="buscar-bg"></div>
+
+    <!-- Contenedor principal de la sección de búsqueda -->
+    <div class="buscar-container">
+        <!-- Encabezado de la sección -->
+        <div class="buscar-header">
+            <span class="buscar-titulo"><i class='bx bx-folder-open'></i> Proyectos</span>
+        </div>
+
+        <!-- Cuadrícula para mostrar los proyectos encontrados -->
+        <div class="proyectos-grid" id="proyectos-grid">
+            <div class="proyecto-card">
+                <i class='bx bxs-folder-open proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Alpha</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-rocket proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Quantum</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-bar-chart-alt-2 proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Nova</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-layer proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Fénix</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-cog proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Omega</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-shield-alt-2 proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Titán</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-component proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Génesis</span>
+            </div>
+            <div class="proyecto-card">
+                <i class='bx bxs-zap proyecto-icon'></i>
+                <span class="proyecto-nombre">Proyecto Vortex</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de Siguiente que aparece al seleccionar una tarjeta -->
+    <button id="siguiente-btn" class="siguiente-btn">Siguiente</button>
+
+    <!-- Script para la funcionalidad de selección -->
+    <script src="../js/buscar.js"></script>
+</body>
+</html>

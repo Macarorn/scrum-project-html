@@ -1,0 +1,364 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    background: #fff;
+    color: #222;
+    min-height: 100vh;
+}
+
+header {
+    background: #6ec72d;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1rem 0;
+}
+
+header .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem; /* Espacio a los lados, ajusta si lo deseas */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #388e3c;
+}
+
+/* Botón principal */
+#Home_Principal .btn, #Home_Principal button, #Home_Principal input[type="button"], #Home_Principal input[type="submit"], #Home_Principal .empezar, #Home_Principal .start, #Home_Principal .btn-primary {
+    background: #6ec72d;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(110,199,45,0.08);
+    transition: background 0.2s, color 0.2s;
+}
+
+#Home_Principal .btn:hover, #Home_Principal button:hover, #Home_Principal input[type="button"]:hover, #Home_Principal input[type="submit"]:hover, #Home_Principal .empezar:hover, #Home_Principal .start:hover, #Home_Principal .btn-primary:hover {
+    background: #388e3c;
+    color: #fff;
+}
+
+#Home_Principal {
+    padding: 3rem 0 2rem 0;
+    background: transparent;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.home-text {
+    flex: 1;
+    min-width: 320px;
+}
+
+.home-text h5 {
+    color: #3cb371;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.home-text h4 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #222;
+    font-weight: bold;
+}
+
+.home-text p {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.btn-empezar {
+    background: #6ec72d;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(110,199,45,0.08);
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-empezar:focus,
+.btn-empezar:active {
+  outline: none;
+  box-shadow: none;
+}
+
+
+.btn-empezar:hover {
+    background: #388e3c;
+}
+
+.home-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-image img {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-container {
+    width: 100%;
+    height: 200px;
+    background: url('../Media/tu-imagen.jpg') center/cover no-repeat;
+    border-radius: 1rem;
+    margin: 0 auto 2rem auto;
+    max-width: 600px;
+    /* Puedes agregar un borde verde si lo deseas */
+    border: 2px solid #6ec72d;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto 0 auto; /* Sin espacio arriba ni abajo */
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+/* Footer */
+footer {
+    background: #f3f3f3; /* Gris claro */
+    padding: 2rem 0;
+    margin-top: 2rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+footer h4,
+footer ul li,
+footer ul li a {
+    color: #222 !important; /* Letras negras */
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 220px;
+    min-width: 180px;
+    height: auto;
+    justify-content: flex-start;
+}
+
+footer h4 {
+    color: #388e3c;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer ul li a {
+    color: #388e3c;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+footer ul li a:hover {
+    color: #6ec72d;
+    text-decoration: underline;
+}
+
+#logosena img {
+    width: 120px;
+    margin-top: 1rem;
+}
+
+/* Ventajas Scrum */
+#ventajas-scrum {
+    margin: 40px 0;
+}
+
+.ventajas-header {
+    text-align: center;
+}
+
+.ventajas-badge {
+    color: #3cb371;
+    font-size: 1rem;
+}
+
+.ventajas-title {
+    font-size: 1.3rem;
+    margin: 10px 0 30px 0;
+    font-weight: bold;
+}
+
+.ventajas-list {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+    flex-wrap: wrap;
+}
+
+.ventaja-item {
+    text-align: center;
+}
+
+.ventaja-icono {
+    width: 180px;
+    height: 180px;
+}
+
+.ventaja-text {
+    margin-top: 10px;
+    font-size: 1.05rem;
+}
+
+/* Dropdown menu header */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.dropdown .arrow {
+    font-size: 1rem;
+    margin-left: 0.2em;
+    color: #000000;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 2.2em;
+    left: 0;
+    background: #fff;
+    color: #222;
+    border: 2px solid #222;
+    border-radius: 1em;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1em 1.2em;
+    z-index: 100;
+}
+
+.dropdown-menu li {
+    list-style: disc inside;
+    margin: 0.5em 0;
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+/* Header adicional */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre logo y "Mas" */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer .container {
+        width: 100%;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    #Home_Principal h4 {
+        font-size: 1.3rem;
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+    .img-container {
+        height: 120px;
+    }
+}

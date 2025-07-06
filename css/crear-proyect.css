@@ -1,0 +1,256 @@
+/**
+ * @file crear-proyect.css
+ * @description Diseño de lujo "Aurora" para la página de bienvenida del proyecto.
+ * @version 3.0.0
+ * @date 25-06-2025
+ */
+
+/* === IMPORTACIONES Y VARIABLES === */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+    --primary-green: #4CAF50;
+    --dark-green: #388E3C;
+    --accent-blue: #2979FF;
+    --text-dark: #1a202c;
+    --text-light: #5a677b;
+    --card-border: rgba(255, 255, 255, 0.2);
+    --card-glow: rgba(76, 175, 80, 0.2);
+}
+
+/* === ESTILOS GENERALES Y FONDO "AURORA" ANIMADO === */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', Arial, sans-serif;
+    background-color: #f0f2f5;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: 
+        radial-gradient(circle at 15% 25%, var(--primary-green), transparent 40%),
+        radial-gradient(circle at 85% 75%, var(--accent-blue), transparent 40%);
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: aurora-flow 20s infinite linear;
+    z-index: 0;
+}
+
+/* Iconos de fondo*/
+.scrum-icon {
+    position: fixed;
+    font-size: 2.2rem; /* Ligeramente más grandes */
+    opacity: 0.09; /* Más opacidad para que se noten más */
+    pointer-events: none;
+    z-index: 0;
+    color: var(--text-dark);
+    filter: blur(0.5px); /* Menos desenfoque para mayor nitidez */
+    will-change: transform;
+    left: 0; top: 0;
+}
+
+/* === CONTENEDOR PRINCIPAL (CON PERSPECTIVA 3D) === */
+.main-content {
+    min-height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+    perspective: 2000px; /* Habilita la perspectiva para el efecto 3D */
+}
+
+/* === TARJETA DE BIENVENIDA (DISEÑO DE LUJO) === */
+.welcome-card {
+    width: 80vw;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(30px) saturate(180%);
+    border-radius: 32px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 65px;
+    box-sizing: border-box;
+    text-align: center;
+    animation: fadeIn 1s ease-out forwards;
+    transform-style: preserve-3d; /* Permite transformaciones 3D */
+    transition: transform 0.5s cubic-bezier(.25,.8,.25,1), box-shadow 0.5s ease;
+}
+
+.welcome-card:hover {
+    transform: rotateY(5deg) rotateX(2deg) scale(1.02);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Animación de iconos al pasar el ratón --- */
+.welcome-card:hover .logo-icon {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 18px 35px var(--card-glow);
+}
+
+.welcome-card:hover .benefit-item i {
+    transform: translateY(-6px);
+    color: var(--primary-green); /* El color cambia para resaltar */
+}
+
+/* Retraso escalonado para la animación de los iconos de beneficios */
+.welcome-card:hover .benefit-item:nth-child(1) i { transition-delay: 0.05s; }
+.welcome-card:hover .benefit-item:nth-child(2) i { transition-delay: 0.1s; }
+.welcome-card:hover .benefit-item:nth-child(3) i { transition-delay: 0.15s; }
+
+
+/* --- Cabecera de la tarjeta --- */
+.welcome-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    font-size: 3.5rem;
+    color: white;
+    background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+    padding: 22px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px var(--card-glow);
+    transition: all 0.4s cubic-bezier(.25,.8,.25,1); /* Transición para una animación suave */
+}
+
+.welcome-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 0;
+    /* Texto con degradado para un look premium */
+    background: linear-gradient(45deg, var(--text-dark), #4a5568);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+/* --- Contenido central --- */
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.welcome-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin: 0 auto;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+/* --- Botones de acción (con efecto de brillo) --- */
+.actions-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 40px;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Para el efecto de brillo */
+}
+
+.action-btn.primary {
+    background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+    color: #fff;
+    box-shadow: 0 8px 20px var(--card-glow);
+}
+
+.action-btn.secondary {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--text-dark);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.action-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Efecto de brillo que se desliza al pasar el ratón */
+.action-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.action-btn:hover::after {
+    left: 150%;
+}
+
+/* --- Pie de página de la tarjeta --- */
+.welcome-footer {
+    border-top: 1px solid var(--card-border);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.benefits-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.benefit-item i {
+    font-size: 2rem;
+    color: var(--dark-green);
+    transition: transform 0.3s ease, color 0.3s ease; /* Transición para una animación suave */
+}
+
+/* === ANIMACIONES === */
+@keyframes aurora-flow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

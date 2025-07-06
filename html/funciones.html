@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos, título y enlaces a hojas de estilo y fuentes -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de Rol</title>
+    <link rel="stylesheet" href="../css/funciones.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Contenedor principal que envuelve toda la página -->
+    <div class="page-wrapper">
+
+        <!-- Contenido principal de la página -->
+        <main class="main-content">
+            
+            <!-- Encabezado de la sección -->
+            <header>
+                <h1><i class='bx bx-user-check'></i>Asignación de Rol</h1>
+                <p>Selecciona un rol para ver sus funciones y asignarlo a un miembro del equipo.</p>
+            </header>
+
+            <!-- Tarjeta principal para la asignación de roles -->
+            <div class="role-assignment-card">
+                
+                <!-- Cabecera de la tarjeta: Perfil de usuario y carrusel de roles -->
+                <div class="card-header">
+                    <!-- Sección para mostrar y cambiar el usuario seleccionado -->
+                    <div class="user-profile">
+                        <div class="avatar-wrapper">
+                            <div id="user-avatar" class="avatar">
+                                <i class='bx bx-user-plus'></i>
+                            </div>
+                            <button id="change-user-btn" class="change-avatar-btn" title="Cambiar usuario">
+                                <i class='bx bx-pencil'></i>
+                            </button>
+                        </div>
+                        <div class="user-name-wrapper">
+                            <p id="user-name" class="user-name">Seleccionar Usuario</p>
+                            <button id="clear-user-btn" class="clear-user-btn" title="Limpiar selección" style="display: none;"><i class='bx bx-x'></i></button>
+                        </div>
+                        <div id="current-role-container" class="current-role-display" style="display: none;">
+                            <i class='bx bxs-award'></i>
+                            <span id="current-role-text"></span>
+                        </div>
+                    </div>
+        
+                    <!-- Sección para seleccionar un rol mediante un carrusel -->
+                    <div class="roles-container">
+                        <h3>Seleccionar Rol</h3>
+                        <div class="roles-carousel">
+                            <button id="prev-role" class="arrow-btn"><i class='bx bx-chevron-left'></i></button>
+                            <div class="roles-track-container">
+                                <div class="roles-track">
+                                    <button class="role-btn" data-role="scrum-master">Scrum Master</button>
+                                    <button class="role-btn" data-role="product-owner">Product Owner</button>
+                                    <button class="role-btn" data-role="product-manager">Product Manager</button>
+                                    <button class="role-btn" data-role="developer">Developer</button>
+                                    <button class="role-btn" data-role="qa-tester">QA Tester</button>
+                                    <button class="role-btn" data-role="ux-designer">UX Designer</button>
+                                    <button class="role-btn" data-role="ui-designer">UI Designer</button>
+                                    <button class="role-btn" data-role="business-analyst">Business Analyst</button>
+                                    <button class="role-btn" data-role="devops-engineer">DevOps Engineer</button>
+                                    <button class="role-btn" data-role="data-analyst">Data Analyst</button>
+                                    <button class="role-btn" data-role="tech-lead">Tech Lead</button>
+                                    <button class="role-btn" data-role="architect">Software Architect</button>
+                                </div>
+                            </div>
+                            <button id="next-role" class="arrow-btn"><i class='bx bx-chevron-right'></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cuerpo de la tarjeta: Pestañas con información del rol -->
+                <div class="card-body">
+                    <!-- Pestañas para navegar entre Funciones, Habilidades y Métricas -->
+                    <div class="info-tabs">
+                        <button class="tab-link active" data-tab="tab-funciones"><i class='bx bx-list-ul'></i> Funciones</button>
+                        <button class="tab-link" data-tab="tab-habilidades"><i class='bx bx-shield-quarter'></i> Habilidades Clave</button>
+                        <button class="tab-link" data-tab="tab-metricas"><i class='bx bx-line-chart'></i> Métricas de Éxito</button>
+                    </div>
+
+                    <!-- Contenido de las Pestañas -->
+                    <div class="tab-content-wrapper">
+                        <!-- Panel para Funciones -->
+                        <div id="tab-funciones" class="tab-content active">
+                            <!-- LA LISTA QUE FALTABA -->
+                            <ul></ul>
+                        </div>
+                        <!-- Panel para Habilidades -->
+                        <div id="tab-habilidades" class="tab-content">
+                            <!-- LA LISTA QUE FALTABA -->
+                            <ul></ul>
+                        </div>
+                        <!-- Panel para Métricas -->
+                        <div id="tab-metricas" class="tab-content">
+                            <!-- LA LISTA QUE FALTABA -->
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pie de la tarjeta con los botones de acción -->
+                <footer class="card-footer">
+                    <button id="remove-role-btn" class="btn btn-danger">Quitar Rol</button>
+                    <button id="assign-role-btn" class="btn btn-primary" onclick="window.location.href='./asigna.html';">Asignar Rol</button>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- --- Modales --- -->
+
+    <!-- Modal para seleccionar un usuario de la lista -->
+    <div id="user-selection-modal" class="modal-overlay">
+        <!-- ... contenido del modal ... -->
+    </div>
+
+    <!-- Modal para confirmar la asignación o eliminación de un rol -->
+    <div id="confirm-modal" class="modal-overlay">
+        <!-- ... contenido del modal ... -->
+    </div>
+
+    <!-- Contenedor para las notificaciones (toasts) -->
+    <div id="toast-container"></div>
+
+    <!-- Script principal para la funcionalidad de la página -->
+    <script src="../js/funciones.js"></script>
+</body>
+</html>

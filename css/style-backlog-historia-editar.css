@@ -24,7 +24,7 @@
   }
   
   .historia-card__title {
-    color: #39A900;
+    color: #4CB200;
     font-size: 1.7rem;
     font-weight: bold;
     flex: 1;
@@ -101,8 +101,8 @@
   
   .status.Archivado {
     background: #fff;
-    color: #39A900;
-    border: 1.5px solid #39A900;
+    color: #4CB200;
+    border: 1.5px solid #4CB200;
     border-radius: 999px;
     padding: 0.18rem 1.5rem;
     font-size: 0.95rem;
@@ -159,7 +159,7 @@
   }
   
   .btn-volver {
-    background: #39A900;
+    background: #4CB200;
     color: #fff;
     border: none;
     border-radius: 7px;
@@ -180,7 +180,7 @@
   .edit-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #39A900;
+    color: #4CB200;
     border: none;
     background: transparent;
     outline: none;
@@ -218,7 +218,7 @@
   
   .historia-card__info input[type="text"]:focus {
     background: #f4fbf0;
-    box-shadow: 0 0 0 2px #39A90033;
+    box-shadow: 0 0 0 2px #4CB20033;
   }
   
   .edit-prioridad {
@@ -251,7 +251,7 @@
   
   .edit-criterios:focus {
     background: #f4fbf0;
-    box-shadow: 0 0 0 2px #39A90033;
+    box-shadow: 0 0 0 2px #4CB20033;
   }
   
   /* Ajuste para el icono de lápiz */
@@ -269,7 +269,7 @@
   right: 100%;
   transform: translateY(-50%);
   background: #fff;
-  border: 3px solid #39A900;
+  border: 3px solid #4CB200;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0 4px 16px rgba(44,62,80,0.13);
   min-width: 130px;
@@ -288,7 +288,7 @@
   height: 0;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
-  border-left: 12px solid #39A900;
+  border-left: 12px solid #4CB200;
 }
 
 .status-menu-tooltip.show {
@@ -309,14 +309,14 @@
 
 .status-menu__item:hover,
 .status-menu__item:focus {
-  background: #39A900;
+  background: #4CB200;
   color: #fff;
 }
 
 
 .status-menu__item.status-archivado:hover,
 .status-menu__item.status-archivado:focus {
-  background: #39A900;
+  background: #4CB200;
   color: #fff;
 }
 

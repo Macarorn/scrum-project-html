@@ -1,0 +1,797 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* --- Estilos Globales y Variables --- */
+body {
+    font-family: 'DM Sans', sans-serif; /* Fuente más moderna */
+    background-color: #f8f9fd; /* Fondo limpio y sólido */
+    margin: 0;
+    color: #4a5568;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contenedor principal que envuelve el sidebar y el contenido */
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Contenedor del contenido principal a la derecha del sidebar */
+.main-content {
+    flex-grow: 1;
+    padding: 40px; /* Padding unificado */
+}
+
+/* Contenedor blanco principal que alberga el contenido de la página */
+.container {
+    background-color: #ffffff;
+    padding: 50px 60px; /* Más padding */
+    border-radius: 24px; /* Bordes más suaves */
+    box-shadow: 0 8px 32px rgba(20, 26, 40, 0.08); /* Sombra más sutil y difusa */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Encabezado de la Página --- */
+header {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+header .header-content {
+    text-align: left;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    font-weight: 600; /* Peso elegante */
+    position: relative;
+    padding-bottom: 15px; /* Espacio para el subrayado */
+    display: inline-flex; /* Para que el subrayado se ajuste al contenido */
+    align-items: center;
+    gap: 12px; /* Espacio ajustado entre icono y texto */
+}
+
+/* Subrayado decorativo verde debajo del título principal */
+header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #39A900;
+    border-radius: 2px;
+    display: block; /* Aseguramos que se muestre */
+}
+
+/* Estilos para el icono del encabezado (ej. birrete) */
+header h1 i {
+    font-size: 2.2rem; /* Tamaño del icono ajustado */
+    color: #39A900; /* Color del icono establecido en verde */
+    /* Eliminamos los estilos de círculo */
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+header p {
+    font-size: 1.15rem;
+    color: #718096;
+    margin-bottom: 0;
+    padding-left: 0; /* Eliminamos el padding que ya no es necesario */
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+/* --- Contenedor Principal (Formulario y Grilla) --- */
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: start;
+}
+
+.skills-container {
+    width: 100%;
+}
+
+.skills-form {
+    flex-grow: 1;
+}
+
+/* Cuadrícula que muestra las tarjetas de habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Grid responsivo */
+    gap: 40px 30px;
+    align-items: start;
+}
+
+.skill-category h3 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-category h3 i {
+    color: #39A900;
+    font-size: 1.4rem;
+}
+
+/* --- Custom Checkbox Styling --- */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    position: relative; /* Necesario para el botón de eliminar */
+}
+
+.checkbox-group .delete-skill-btn {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 1;
+    padding: 5px;
+}
+
+.checkbox-group:hover .delete-skill-btn {
+    display: block; /* Visible al pasar el ratón */
+}
+
+.checkbox-group .delete-skill-btn:hover {
+    color: #ef4444; /* Rojo al pasar el ratón */
+}
+
+@keyframes new-skill-pop-in {
+    0% {
+        transform: scale(0.8);
+        background-color: #f0fff4;
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        background-color: #f0fff4;
+    }
+    100% {
+        transform: scale(1);
+        background-color: transparent;
+        opacity: 1;
+    }
+}
+
+.checkbox-group.new-skill-animation {
+    animation: new-skill-pop-in 1.5s ease-out forwards;
+    border-radius: 6px; /* Para que el fondo de la animación se vea bien */
+}
+
+.checkbox-group input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-group label {
+    font-size: 1rem;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    color: #4a5568;
+}
+
+.checkbox-group label:hover {
+    color: #2d3748;
+}
+
+.checkbox-group label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 1px solid #cbd5e0;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.checkbox-group input[type="checkbox"]:checked + label::before {
+    background-color: #39A900;
+    border-color: #39A900;
+}
+
+.checkbox-group label::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    margin-top: -7px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.2s ease;
+}
+
+.checkbox-group input[type="checkbox"]:checked + label::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.add-skill-card {
+    background-color: transparent;
+    border: 2px dashed #d1d5db; /* Borde discontinuo */
+    color: #9ca3af; /* Color de texto e icono más suave */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    min-height: 150px; /* Altura mínima para consistencia */
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.add-skill-card:hover {
+    border-color: #39A900;
+    background-color: #f0fff4; /* Fondo verde muy claro */
+    color: #39A900;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.add-skill-card .plus-icon {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.add-skill-card p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* --- Selected Skills Summary (Right Panel) --- */
+.selected-skills-summary {
+    width: 380px;
+    flex: 0 0 380px;
+    background-color: #f9fafb;
+    border-radius: 16px;
+    padding: 25px;
+    position: sticky;
+    top: 40px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-strength {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring__circle-bg {
+    stroke: #e5e7eb;
+}
+
+.progress-ring__circle {
+    stroke: #39A900;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.35s;
+}
+
+.profile-strength-text h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.profile-strength-text span {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.summary-count {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4b5563;
+    background-color: #f3f4f6;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.summary-count span {
+    background-color: #39A900;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+#clear-all-btn {
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #ef4444;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+#clear-all-btn:hover {
+    background-color: #ef4444;
+    color: white;
+    animation: shake 0.5s ease;
+}
+
+#clear-all-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f1f5f9;
+    color: #64748b;
+    border-color: #e2e8f0;
+    animation: none;
+}
+
+#selected-skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 10px; /* Espacio para el scrollbar */
+}
+
+/* Scrollbar Styling */
+#selected-skills-list::-webkit-scrollbar {
+    width: 8px;
+}
+#selected-skills-list::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+#selected-skills-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+#selected-skills-list::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+#selected-skills-list li {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #374151;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+#selected-skills-list li.starred {
+    background-color: #fefce8; /* Amarillo muy claro */
+    border-color: #facc15; /* Borde amarillo */
+}
+
+#selected-skills-list .summary-category-header {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding: 0 5px;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#selected-skills-list .summary-category-header i {
+    font-size: 1.2rem;
+}
+
+#selected-skills-list .summary-category-header:first-child {
+    margin-top: 0;
+}
+
+#selected-skills-list li:hover {
+    border-color: #39A900;
+    background-color: #f0fff4;
+    transform: translateY(-2px);
+}
+
+#selected-skills-list .no-skills-placeholder {
+    background-color: transparent;
+    color: #9ca3af;
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: none;
+}
+
+#selected-skills-list .no-skills-placeholder:hover {
+    transform: none;
+    background-color: transparent;
+    border: none;
+}
+
+.skill-name-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-name-with-icon i {
+    font-size: 1.2rem;
+    color: #39A900;
+}
+
+.no-skills-placeholder svg {
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+.no-skills-placeholder span {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.no-skills-placeholder p {
+    font-size: 0.9rem;
+    margin: 0;
+    max-width: 200px;
+}
+
+.skill-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.star-skill-btn,
+.remove-skill-btn {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 4px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.star-skill-btn:hover {
+    color: #f59e0b; /* Amarillo */
+    background-color: #fefce8;
+}
+
+.star-skill-btn.starred .bxs-star {
+    color: #f59e0b;
+    animation: star-pop 0.4s ease;
+}
+
+.remove-skill-btn:hover {
+    color: #ef4444; /* Rojo para eliminar */
+    background-color: #fee2e2;
+}
+
+#final-summary-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#final-summary-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#final-summary-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#final-summary-list li:last-child {
+    border-bottom: none;
+}
+
+#final-summary-list i {
+    color: #39A900;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes star-pop {
+    0% { transform: scale(0.5); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al top para animación */
+    padding-top: 10vh;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    transform: translateY(-50px);
+    animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #9ca3af;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1a202c;
+}
+
+.modal-content p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #39A900;
+    box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+    width: auto;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #39A900;
+    color: white;
+}
+.btn-primary:hover { background-color: #318a00; }
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+.btn-secondary:hover { background-color: #cbd5e1; }
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+.btn-danger:hover { background-color: #dc2626; }
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.continue-btn {
+    background-color: #39A900;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(57, 169, 0, 0.39);
+}
+
+.continue-btn:hover {
+    background-color: #318a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(57, 169, 0, 0.45);
+}
+
+/* --- Sidebar Menu --- */
+.sidebar-menu {
+    width: 90px;
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.sidebar-menu .menu-item a,
+.sidebar-menu .menu-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-menu .menu-item a i,
+.sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: #39A900; /* Usando el verde primario existente */
+}
+
+.sidebar-menu .menu-item:hover a,
+.sidebar-menu .menu-item.active a,
+.sidebar-menu .menu-bottom a:hover {
+    background-color: #39A900; /* Usando el verde primario existente */
+}
+
+.sidebar-menu .menu-item:hover a i,
+.sidebar-menu .menu-item.active a i,
+.sidebar-menu .menu-bottom a:hover i {
+    color: #ffffff; /* Usando blanco */
+}
+
+.sidebar-menu .menu-bottom {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

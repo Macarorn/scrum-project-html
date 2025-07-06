@@ -22,7 +22,7 @@
 }
 
 .historia-card__title {
-  color: #39A900;
+  color: #4CB200;
   font-size: 1.7rem;
   font-weight: bold;
   flex: 1;
@@ -99,8 +99,8 @@
 
 .status.Archivado {
   background: #fff;
-  color: #39A900;
-  border: 1.5px solid #39A900;
+  color: #4CB200;
+  border: 1.5px solid #4CB200;
   border-radius: 999px;
   padding: 0.18rem 1.5rem;
   font-size: 0.95rem;
@@ -157,7 +157,7 @@
 }
 
 .btn-volver {
-  background: #39A900;
+  background: #4CB200;
   color: #fff;
   border: none;
   border-radius: 7px;

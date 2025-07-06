@@ -1,0 +1,776 @@
+/* Variables para colores principales */
+:root {
+  --white: #fff;
+  --primary-green: #39A900;
+}
+/* --- Sidebar Menu --- */
+/* Contenedor principal del menú lateral */
+.sidebar-menu {
+    width: 90px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 768px; /* Cambiado de 100vh a 768px */
+    z-index: 1000;
+    border-radius: 0 20px 20px 0;
+}
+
+/* Lista de elementos del menú */
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+/* Enlaces de los elementos del menú */
+.sidebar-menu .menu-item a,
+.sidebar-menu .menu-bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+/* Iconos dentro de los enlaces del menú */
+.sidebar-menu .menu-item a i,
+.sidebar-menu .menu-bottom a i {
+    font-size: 1.9rem;
+    color: var(--primary-green);
+}
+
+/* Estilos para el estado hover y activo de los elementos del menú */
+.sidebar-menu .menu-item:hover a,
+.sidebar-menu .menu-item.active a,
+.sidebar-menu .menu-bottom a:hover {
+    background-color: var(--primary-green);
+}
+
+/* Estilos para los iconos en estado hover y activo */
+.sidebar-menu .menu-item:hover a i,
+.sidebar-menu .menu-item.active a i,
+.sidebar-menu .menu-bottom a:hover i {
+    color: var(--white);
+}
+
+/* Sección inferior del menú (ej. logout) */
+.sidebar-menu .menu-bottom {
+    padding-top: 20px;
+}
+/* Avatar circular para el icono de persona en el equipo */
+.team-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  
+  background: #fff;
+  margin: 0 auto 2px auto;
+  position: relative;
+}
+.team-avatar .material-icons {
+  font-size: 38px;
+  color: #00304D;
+  line-height: 1;
+  z-index: 1;
+}
+/*
+  rol.css: Estilos para la página de rol
+  - Paleta: Verde #39A900, Azul #00304D, Gris claro #EDEDED, Gris oscuro #333, Verde claro #8ECE6E
+  - Fuente: DM Sans
+  - Adaptado a 1366x768px
+  - Comentarios para facilitar edición
+*/
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body, html {
+  width: 1366px !important;
+  height: 768px !important;
+  min-width: 1366px !important;
+  min-height: 768px !important;
+  max-width: 1366px !important;
+  max-height: 768px !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 1366px;
+  height: 768px;
+  min-width: 1366px;
+  min-height: 768px;
+  max-width: 1366px;
+  max-height: 768px;
+  margin: 0 auto;
+  background: #fff !important;
+  color: #00304D;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  min-width: 1366px;
+  min-height: 768px;
+  background: #fff !important;
+  overflow: hidden;
+}
+
+/* Centrado absoluto del contenido principal */
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  margin-left: 80px;
+  height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 80px !important;
+  height: 768px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  background: #39A900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0 0 0;
+  z-index: 20;
+  justify-content: flex-start;
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.10);
+}
+.sidebar .icon {
+  width: 48px;
+  height: 48px;
+  margin: 10px 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.sidebar .icon .material-icons {
+  font-size: 32px;
+  color: #00304D;
+  display: block;
+  line-height: 1;
+}
+.sidebar .icon.selected {
+  background: #fff;
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.04);
+}
+.sidebar .icon.selected .material-icons {
+  color: #00304D;
+}
+.sidebar .icon.settings {
+  margin-top: auto;
+  margin-bottom: 18px;
+}
+.sidebar .icon:hover:not(.selected) {
+  background: #00304D;
+}
+.sidebar .icon:hover:not(.selected) .material-icons {
+  color: #fff;
+}
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Cambiado de flex-end a flex-start para alinear arriba */
+  justify-content: center;
+  gap: 32px;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding-top: 40px;
+  top: -100px;
+}
+.profile-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  width: 800px !important;
+  min-width: 800px !important;
+  max-width: 800px !important;
+  min-height: 640px !important;
+  max-height: 640px !important;
+  padding: 48px 48px 48px 48px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 !important;
+  align-self: flex-start;
+  margin-bottom: 0 !important;
+  margin-top: auto !important;
+  margin-top: 0;
+}
+.profile-edit {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  justify-content: flex-start; /* Cambiado de flex-end a flex-start para alinear el avatar a la izquierda */
+}
+.profile-pic, .profile-user-pic {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  background: #EDEDED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex-direction: column;
+}
+.profile-pic img, .profile-user-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+} 
+.profile-pic input[type="file"], .profile-user-pic input[type="file"] {
+  display: none;
+}
+.profile-pic:hover::after, .profile-user-pic:hover::after {
+  content: "Subir foto";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(57,169,0,0.8);
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 6px 0;
+}
+.profile-info {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.profile-details {
+  display: flex;
+  gap: 10px;
+  margin-top: 0;
+}
+.doc-btn {
+  min-width: 180px;
+  font-size: 18px;
+  align-self: flex-end;
+}
+.profile-row label {
+  font-weight: 700;
+  font-size: 16px;
+  color: #00304D;
+}
+.profile-row select, .profile-row input, .profile-row button, .profile-row .tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #EDEDED;
+  padding: 6px 12px;
+  margin-right: 8px;
+  outline: none;
+}
+.profile-row .tag {
+  background: #EDEDED;
+  border: none;
+  color: #00304D;
+  font-weight: 500;
+  cursor: default;
+}
+.profile-row .tag.green {
+  background: #8ECE6E;
+  color: #00304D;
+}
+.profile-row .tag.blue {
+  background: #00304D;
+  color: #fff;
+}
+.profile-row .tag.date {
+  background: #EDEDED;
+  color: #00304D;
+}
+.profile-row .switch {
+  width: 36px; height: 20px;
+  background: #8ECE6E;
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.profile-row .switch input {
+  display: none;
+}
+.profile-row .slider {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  background: #39A900;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+.profile-row .switch input:checked + .slider {
+  left: 18px;
+  background: #00304D;
+}
+.profile-row .doc-btn {
+  background: #EDEDED;
+  color: #00304D;
+  border: 1px solid #00304D;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.profile-row .doc-btn:focus, .profile-row .doc-btn:hover {
+  background: #00304D;
+  color: #fff;
+}
+.profile-details {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.profile-details .tag {
+  min-width: 90px;
+  text-align: center;
+}
+.meetings-section {
+  margin-top: 25px;
+  display: flex;
+  gap: 30px;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+.meetings-history {
+  flex: 2;
+}
+.meetings-history h4 {
+  margin: 0 0 10px 0;
+  font-size: 17px;
+  color: #00304D;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.meetings-history .switch {
+  width: 24px; height: 14px;
+  margin: 0 0 0 8px;
+}
+.meetings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.meetings-table th, .meetings-table td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid #EDEDED;
+}
+.meetings-table th {
+  color: #00304D;
+  font-weight: 700;
+  background: #EDEDED;
+}
+.meetings-table td {
+  color: #00304D;
+}
+.team-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 0;
+}
+.team-carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 32px;
+  overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 18px;
+  justify-content: flex-start;
+  padding-bottom: 8px;
+  scrollbar-color: #ccc #f5f5f5;
+  scrollbar-width: thin;
+  /* border-radius: 32px; */
+  /* border: 3px solid #00304D; */
+  /* background: #fff; */
+  box-sizing: border-box;
+}
+.team-carousel::-webkit-scrollbar {
+  height: 10px;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+.team-carousel::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+.team-carousel::-webkit-scrollbar {
+  height: 10px;
+  background: #EDEDED;
+  border-radius: 6px;
+}
+.team-carousel::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 70px;
+  margin: 0 8px;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+}
+.team-member .material-icons, .team-member .team-initial {
+  font-size: 28px !important;
+  color: #00304D !important;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+}
+.team-name {
+  font-size: 12px;
+  color: #00304D;
+  text-align: center;
+  margin-top: 2px;
+  font-weight: 400;
+  width: 100%;
+  word-break: break-all;
+}
+.team-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+  margin-top: 24px;
+}
+.team-controls button {
+  color: #39A900;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+.team-controls button .material-icons {
+  font-size: 28px !important;
+}
+.sprint-goals {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  width: 270px !important;
+  min-width: 270px !important;
+  max-width: 270px !important;
+  min-height: 280px !important;
+  max-height: 420px !important;
+  padding: 32px 24px 24px 24px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 0 32px !important;
+  position: relative;
+  box-sizing: border-box;
+  align-self: first baseline; /* Cambiado a flex-start para alinear arriba */
+  margin-top: 0 !important;
+  top: -60px;
+}
+.sprint-goals h4 {
+  font-size: 20px !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  font-weight: bold;
+  color: #00304D;
+  text-align: center;
+}
+.progress-circle {
+  width: 110px !important;
+  height: 110px !important;
+  margin: 10px auto 0 auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.progress-circle svg {
+  width: 110px !important;
+  height: 110px !important;
+}
+.progress-circle .progress-text {
+  font-size: 28px !important;
+  font-weight: bold;
+  color: #00304D;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra exactamente el texto dentro del círculo */
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.sprint-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  width: 100%;
+  font-size: 13px !important;
+  color: #00304D;
+  gap: 4px !important;
+}
+.sprint-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.sprint-list li .check {
+  color: #39A900;
+  font-size: 18px;
+}
+.sprint-search {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #EDEDED;
+  padding: 4px 8px !important;
+  font-size: 13px !important;
+  outline: none;
+}
+.other-groups-section {
+  position: static;
+  left: unset;
+  bottom: unset;
+  width: 100%;
+  margin: 0 0 0 110px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.other-groups-title {
+  font-size: 22px;
+  color: #00304D;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-left: 24px;
+  margin-top: 32px;
+}
+.groups-list {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 0;
+  margin-top: 0;
+}
+.group-card {
+  background: #8ECE6E;
+  border-radius: 14px;
+  width: 180px;
+  min-width: 180px;
+  max-width: 200px;
+  padding: 10px 8px 8px 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  align-items: flex-start;
+}
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.group-avatars {
+  display: flex;
+  align-items: center;
+  gap: -8px;
+}
+.group-avatars img {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-left: -6px;
+  background: #EDEDED;
+}
+.group-title {
+  font-size: 12px;
+  color: #00304D;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.group-epic {
+  font-size: 10px;
+  color: #00304D;
+  margin-bottom: 2px;
+}
+.group-progress {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #00304D;
+  font-weight: 500;
+  width: 100%;
+}
+.group-card .edit-menu {
+  font-size: 14px;
+  display: none;
+  position: absolute;
+  top: 38px; right: 10px;
+  background: #fff;
+  border: 1px solid #EDEDED;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 4px 10px;
+  color: #00304D;
+  z-index: 2;
+}
+.group-card .edit-menu.show {
+  display: block;
+}
+.add-group-btn {
+  margin-left: 24px;
+  font-size: 2.2rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid #39A900;
+  color: #39A900;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(57,169,0,0.10);
+  position: relative;
+}
+
+.role-select {
+  width: 170px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1.5px solid #7B6F9E;
+  padding: 6px 12px;
+  outline: none;
+  color: #00304D;
+  background: #F8F8F8;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 2px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+.role-select:focus {
+  border: 1.5px solid #39A900;
+}
+
+@media (max-width: 1365px), (max-height: 767px) {
+  html, body, .container {
+    min-width: 1366px !important;
+    min-height: 768px !important;
+    width: 1366px !important;
+    height: 768px !important;
+    overflow: hidden !important;
+  }
+  .container {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .main-content {
+    margin-left: 80px !important;
+    align-items: center !important;
+  }
+  .other-groups-section {
+    margin-left: 80px !important;
+  }
+}
+

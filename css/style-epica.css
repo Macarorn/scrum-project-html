@@ -1,0 +1,618 @@
+/* ===========================
+   RESET Y VARIABLES GENERALES
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --primary-green: #4CB200;
+  --light-green: #e6f4e0;
+  --dark-blue: #2c3e50;
+  --light-gray: #f8f9fa;
+  --border-color: #eef0f2;
+  --text-secondary: #7f8c8d;
+  --white: #fff;
+  --progress-secondary: #a5d6a7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===========================
+   BODY Y FUENTE GENERAL
+   =========================== */
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark-blue);
+  background-color: var(--light-gray);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===========================
+   SIDEBAR
+   =========================== */
+.sidebar {
+  width: 80px;
+  background: #fff;
+  border-right: 2px solid var(--primary-green);
+  height: 100vh;
+  overflow-x: visible;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  flex-shrink: 0;
+}
+
+.sidebar .menu-btn {
+  background: none;
+  border: none;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar nav ul li:last-child {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.sidebar nav a {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.sidebar nav .indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 48px;
+  height: 48px;
+  background: var(--primary-green);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Iconos activos y hover */
+.sidebar nav a.active svg path,
+.sidebar nav a.active svg circle,
+.sidebar nav a:hover svg path,
+.sidebar nav a:hover svg circle {
+  fill: #fff !important;
+}
+
+/* Tooltip en los iconos del sidebar */
+.sidebar nav a:hover::after {
+  content: attr(aria-label);
+  position: absolute;
+  left: 180%;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.15s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ===========================
+   CONTENIDO PRINCIPAL
+   =========================== */
+.main {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 1.5rem 0 1.5rem 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ===========================
+   HEADER Y TÍTULOS
+   =========================== */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.header h1,
+.header__title {
+  display: flex;
+  align-items: center;
+  font-size: 2.0rem;
+  font-weight: bold;
+  color: var(--dark-blue);
+  gap: 0.5rem;
+}
+
+.header .epic {
+  font-weight: 600;
+  font-size: clamp(18px, 2.5vw, 30px);
+  margin-left: 0.5rem;
+  color: #4caf50;
+}
+
+.epic {
+  display: inline-flex;
+  align-items: center;
+}
+
+.epic__dropdown-icon {
+  margin-left: 0.55rem;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   ACCIONES Y BOTONES
+   =========================== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn,
+.btn-new {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-new svg {
+  flex-shrink: 0;
+}
+
+/* ===========================
+   BUSCADOR
+   =========================== */
+.search {
+  display: inline-flex;
+  align-items: center;
+  width: 250px;
+  padding: 0.5rem 1rem;
+  border: 5px solid var(--primary-green);
+  border-radius: 15px;
+  background: transparent;
+}
+
+.search svg {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+}
+
+.search input::placeholder {
+  color: #999;
+}
+
+/* ===========================
+   TABLA DE ÉPICAS
+   =========================== */
+.table {
+  display: block;
+  background: #e0e0e0;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.table .header-row,
+.table .row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 0.3fr;
+  background: #e0e0e0;
+  border-radius: 8px;
+}
+
+.table .header-row .cell,
+.table .row .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.table .header-row .cell {
+  font-weight: bold;
+  color: #575757;
+}
+
+.table .header-row .cell:first-child,
+.table .row .cell:first-child {
+  justify-content: flex-start;
+}
+
+.cell.title {
+  color: #39A900;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.table .row {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 0.75rem;
+  height: 100px;
+}
+
+.table .row:first-of-type {
+  margin-top: 1rem;
+}
+
+.table .row .cell:not(:first-child) {
+  border: none;
+}
+
+/* Estado como botón */
+.table .cell>button.status {
+  width: 150px;
+  padding: 0.5rem 0;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: default;
+}
+
+button.status.Activo {
+  background: #39A900;
+  color: #fff;
+  border: none;
+}
+button.status.Pendiente {
+  background: #A5D6A7;
+  color: #fff;
+  border: none;
+}
+button.status.Archivado {
+  background: #fff;
+  color: #39A900;
+  border: 2px solid #39A900;
+}
+
+/* ===========================
+   DROPDOWN DE ÉPICAS
+   =========================== */
+.epic-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  min-width: 260px;
+  background: #fff;
+  border: 5px solid var(--primary-green);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.15);
+  z-index: 200;
+  padding: 0.5rem 0;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
+  animation: none !important;
+}
+.epic-dropdown.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.epic-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: 20px;
+  scrollbar-color: var(--primary-green) #fff;
+}
+.epic-dropdown__list::-webkit-scrollbar {
+  width: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+.epic-dropdown__list::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 8px;
+}
+.epic-dropdown__list::-webkit-scrollbar-thumb:hover {
+  background: #388e00;
+}
+.epic-dropdown__list::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.epic-dropdown__arrow {
+  position: absolute;
+  top: -18px;
+  left: 24px;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+}
+.epic-dropdown__arrow::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-left: 4px solid var(--primary-green);
+  border-top: 4px solid var(--primary-green);
+  transform: rotate(45deg);
+  border-radius: 3px 0 0 0;
+}
+.epic-dropdown__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  font-weight: 600;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+}
+.epic-dropdown__item.active,
+.epic-dropdown__item:hover {
+  background: var(--primary-green);
+  color: #fff;
+}
+.epic-dropdown__item.active .epic-dropdown__count,
+.epic-dropdown__item:hover .epic-dropdown__count {
+  color: #fff;
+}
+.epic-dropdown__count {
+  font-size: 0.95rem;
+  color: #222;
+  font-weight: 400;
+}
+.epic-dropdown__all {
+  display: block;
+  width: 90%;
+  margin: 12px auto 0 auto;
+  padding: 12px 0;
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 3px solid var(--primary-green);
+  transition: background 0.15s, color 0.15s;
+}
+.epic-dropdown__all:hover,
+.epic-dropdown__all:focus {
+  background: var(--primary-green);
+  color: #fff;
+}
+.epic-dropdown__item a {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+  font-size: inherit;
+  font-family: inherit;
+  display: inline-block;
+}
+.epic-dropdown__item.active a,
+.epic-dropdown__item:hover a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ===========================
+   MENÚ CONTEXTUAL DE ACCIONES
+   =========================== */
+.context-menu {
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.15);
+  min-width: 140px;
+  z-index: 100;
+  border: 4px solid var(--primary-green);
+  overflow: hidden;
+  flex-direction: column;
+  padding: 0;
+}
+.context-menu.open {
+  display: flex;
+}
+.context-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #fff;
+  transition: background 0.15s, color 0.15s;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 0;
+  color: #222;
+  box-shadow: none !important;
+}
+.context-menu__item i {
+  font-size: 1.3em;
+  transition: color 0.15s;
+}
+.context-menu__item.edit {
+  color: var(--primary-green);
+}
+.context-menu__item.edit i {
+  color: var(--primary-green);
+}
+.context-menu__item.edit:hover,
+.context-menu__item.edit:focus {
+  background: var(--primary-green);
+  color: #fff;
+}
+.context-menu__item.edit:hover i,
+.context-menu__item.edit:focus i {
+  color: #fff;
+}
+.context-menu__item.share {
+  color: #2980ef;
+}
+.context-menu__item.share i {
+  color: #2980ef;
+}
+.context-menu__item.share:hover,
+.context-menu__item.share:focus {
+  background: #2980ef;
+  color: #fff;
+}
+.context-menu__item.share:hover i,
+.context-menu__item.share:focus i {
+  color: #fff;
+}
+.context-menu__item.delete {
+  color: #e74c3c;
+}
+.context-menu__item.delete i {
+  color: #e74c3c;
+}
+.context-menu__item.delete:hover,
+.context-menu__item.delete:focus {
+  background: #e74c3c;
+  color: #fff;
+}
+.context-menu__item.delete:hover i,
+.context-menu__item.delete:focus i {
+  color: #fff;
+}
+.cell-actions {
+  position: relative;
+}
+.cell-actions .menu-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: -4px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+.cell-actions .menu-trigger:hover,
+.cell-actions .menu-trigger:focus {
+  background: #e6f4e0;
+}
+
+/* ===========================
+   ANIMACIONES
+   =========================== */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.7) rotate(-10deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { padding: 1rem; }
+  .header { flex-direction: column; align-items: flex-start; }
+  .actions { width: 100%; justify-content: space-between; }
+  .actions input { flex: 1; }
+  .table { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+  /* Ocultar columna de prioridad en móviles */
+  .cell:nth-child(5),
+  .header-row .cell:nth-child(5) { display: none; }
+}
+
+/* ===========================
+   OTROS
+   =========================== */
+.row.row-link {
+  cursor: pointer;
+  transition: box-shadow 0.15s, background 0.15s;
+}
+.row.row-link:hover {
+  background: #f4fbf0;
+  box-shadow: 0 4px 16px rgba(76, 178, 0, 0.10);
+}
+

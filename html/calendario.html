@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centro de Reuniones</title>
+    <link rel="stylesheet" href="../css/calendario.css" />
+    <link rel="stylesheet" href="../css/sidebar-menu.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- menú side-bar -->
+      <aside class="sidebar-menu">
+        <ul>
+          <li class="menu-item">
+            <a href="#"><i class="bx bx-menu"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./equipo.html"><i class="bx bx-group"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+          </li>
+          <li class="menu-item active">
+            <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+          </li>
+          <li class="menu-item">
+            <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+          </li>
+        </ul>
+        <!-- Menú inferior con icono de configuración -->
+        <div class="menu-bottom">
+          <a href="#"><i class="bx bx-cog"></i></a>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="calendar-layout">
+          <div class="calendar-box">
+            <h1 class="calendar-title">Centro de Reuniones</h1>
+            <div class="calendar-header">
+              <div class="calendar-nav">
+                <i class="bx bx-chevron-left" id="prev-month"></i>
+                <i class="bx bx-calendar" id="calendar-picker-btn"></i>
+                <i class="bx bx-chevron-right" id="next-month"></i>
+                <span
+                  id="calendar-current-title"
+                  class="calendar-current-title"
+                ></span>
+              </div>
+              <div id="calendar-picker" class="calendar-picker-hidden">
+                <select id="calendar-month"></select>
+                <select id="calendar-year"></select>
+              </div>
+            </div>
+            <table class="calendar-table">
+              <thead>
+                <tr>
+                  <th>Lun</th>
+                  <th>Mar</th>
+                  <th>Mié</th>
+                  <th>Jue</th>
+                  <th>Vie</th>
+                  <th>Sáb</th>
+                  <th>Dom</th>
+                </tr>
+              </thead>
+              <tbody id="calendar-body"></tbody>
+            </table>
+          </div>
+          <div class="calendar-events">
+            <h2>Próximas Reuniones</h2>
+            <button
+              class="add-event-btn"
+              id="add-event-btn"
+              style="display: none"
+            >
+              <i class="bx bx-plus"></i> Agregar reunión
+            </button>
+            <div id="event-list">
+              <!-- Ejemplo de reuniones ya creadas con estructura de tarjeta -->
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="event-day">08</span>
+                  <span class="event-month">JUL</span>
+                </div>
+                <div class="event-info">
+                  <span class="event-title">Reunión de equipo</span>
+                  <span class="event-desc"
+                    >Revisión de avances del proyecto.</span
+                  >
+                </div>
+              </div>
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="event-day">10</span>
+                  <span class="event-month">JUL</span>
+                </div>
+                <div class="event-info">
+                  <span class="event-title">Presentación Cliente</span>
+                  <span class="event-desc"
+                    >Presentación de la nueva funcionalidad.</span
+                  >
+                </div>
+              </div>
+              <div class="event-card">
+                <div class="event-date">
+                  <span class="event-day">15</span>
+                  <span class="event-month">JUL</span>
+                </div>
+                <div class="event-info">
+                  <span class="event-title">Planificación Sprint</span>
+                  <span class="event-desc"
+                    >Definir tareas para el próximo sprint.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="modal-reunion" class="modal-reunion-hidden">
+      <div class="modal-reunion-content">
+        <h3>Agregar Reunión</h3>
+        <label>Título:</label>
+        <input
+          type="text"
+          id="reunion-titulo"
+          placeholder="Título de la reunión"
+        />
+        <label>Descripción:</label>
+        <textarea id="reunion-desc" placeholder="Descripción"></textarea>
+        <div class="modal-reunion-actions">
+          <button id="guardar-reunion">Guardar</button>
+          <button id="cerrar-modal-reunion">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-confirmar-eliminar" class="modal-reunion-hidden">
+      <div class="modal-reunion-content" style="max-width: 320px">
+        <h3>¿Eliminar reunión?</h3>
+        <p>¿Estás seguro de que deseas eliminar esta reunión?</p>
+        <div class="modal-reunion-actions">
+          <button id="confirmar-eliminar-btn">Eliminar</button>
+          <button id="cancelar-eliminar-btn">Cancelar</button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/calendario.js"></script>
+  </body>
+</html>

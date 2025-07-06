@@ -1,234 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Backlog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style-backlog.css" />
+    <link rel="stylesheet" href="../css/sidebar-menu.css" />
+    <link rel="stylesheet" href="../css/style-backlog-historia.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: light)"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="%2339A900" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: dark)"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestor de Backlog</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style-backlog.css" />
-  <link rel="stylesheet" href="../css/sidebar-menu.css" />
-  <link rel="stylesheet" href="../css/style-backlog-historia.css" />
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
-  <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)"
-    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="%2339A900" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>' />
-  <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)"
-    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>' />
-</head>
+  <body>
+    <!-- menú side-bar -->
+    <aside class="sidebar-menu">
+      <ul>
+        <li class="menu-item">
+          <a href="#"><i class="bx bx-menu"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./equipo.html"><i class="bx bx-group"></i></a>
+        </li>
+        <li class="menu-item active">
+          <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+        </li>
+        <li class="menu-item">
+          <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+        </li>
+      </ul>
+      <!-- Menú inferior con icono de configuración -->
+      <div class="menu-bottom">
+        <a href="#"><i class="bx bx-cog"></i></a>
+      </div>
+    </aside>
 
-<body>
-  <!-- menú side-bar -->
-  <aside class="sidebar-menu">
-    <ul>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-menu"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-user"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-group"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-bar-chart-alt-2"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-folder"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-calendar"></i></a>
-      </li>
-      <li class="menu-item">
-        <a href="#"><i class="bx bx-video"></i></a>
-      </li>
-    </ul>
-    <!-- Menú inferior con icono de configuración -->
-    <div class="menu-bottom">
-      <a href="#"><i class="bx bx-cog"></i></a>
-    </div>
-  </aside>
-
-  <main class="main">
-    <!-- header y desplegable -->
-    <header class="header">
-      <h1 class="header__title">
-        <span class="backlog-title-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"></path>
-            <path
-              d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z">
-            </path>
-          </svg>
-        </span>
-        Gestor de Backlog
-        <span class="epic-container" style="
+    <main class="main">
+      <!-- header y desplegable -->
+      <header class="header">
+        <h1 class="header__title">
+          <span class="backlog-title-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"
+              ></path>
+              <path
+                d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"
+              ></path>
+            </svg>
+          </span>
+          Gestor de Backlog
+          <span
+            class="epic-container"
+            style="
               position: relative;
               display: inline-flex;
               align-items: center;
-            ">
-          <span class="epic" id="epicToggle" style="cursor: pointer">
-            <span id="epicSelectedText">Épica 1</span>
-            <svg class="epic__dropdown-icon" width="18" height="12" viewBox="0 0 15.62 10.09"
-              xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-              <path d="M1 1l6.81 6.81L14.62 1" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round" />
-            </svg>
+            "
+          >
+            <span class="epic" id="epicToggle" style="cursor: pointer">
+              <span id="epicSelectedText">Épica 1</span>
+            </span>
           </span>
-          <span class="epic-dropdown" id="epicDropdown">
-            <div class="epic-dropdown__arrow"></div>
-            <ul class="epic-dropdown__list" id="epicList">
-              <li class="epic-dropdown__item active">
-                <span><a href="./backlog.html">Épica 1</a></span>
-                <span class="epic-dropdown__count">H. Usuario 7</span>
-              </li>
-              <li class="epic-dropdown__item">
-                <span>Épica 2</span>
-                <span class="epic-dropdown__count">H. Usuario 7</span>
-              </li>
-              <li class="epic-dropdown__item">
-                <span>Épica 3</span>
-                <span class="epic-dropdown__count">H. Usuario 3</span>
-              </li>
-              <li class="epic-dropdown__item">
-                <span>Épica 4</span>
-                <span class="epic-dropdown__count">H. Usuario 8</span>
-              </li>
-              <li class="epic-dropdown__item">
-                <span>Épica 5</span>
-                <span class="epic-dropdown__count">H. Usuario 16</span>
-              </li>
-              <li class="epic-dropdown__item">
-                <span>Épica 6</span>
-                <span class="epic-dropdown__count">H. Usuario 12</span>
-              </li>
-              <li class="epic-dropdown__item">
-                <span>Épica 7</span>
-                <span class="epic-dropdown__count">H. Usuario 7</span>
-              </li>
-            </ul>
-            <button class="epic-dropdown__all">Ver todas las Epicas</button>
-          </span>
-        </span>
-      </h1>
-    </header>
-    <!-- Gestor de Historia -->
-    <section class="historia-card">
-      <div class="historia-card__header">
-        <span class="historia-card__title">Tarea 1</span>
-        <button class="status Archivado">Archivado</button>
-        <div class="historia-card__menu">
-          <i class="bx bx-dots-vertical-rounded menu-trigger" id="editMenuTrigger"></i>
-          <div class="menu-tooltip" id="editMenuTooltip">Editar</div>
+        </h1>
+      </header>
+      <!-- Gestor de Historia -->
+      <section class="historia-card">
+        <div class="historia-card__header">
+          <span class="historia-card__title">Tarea 1</span>
+          <button class="status Archivado">Archivado</button>
+          <div class="historia-card__menu">
+            <i
+              class="bx bx-dots-vertical-rounded menu-trigger"
+              id="editMenuTrigger"
+            ></i>
+            <div class="menu-tooltip" id="editMenuTooltip">Editar</div>
+          </div>
         </div>
-      </div>
-      <div class="historia-card__info">
-        <div><b>ID:</b> 4567</div>
-        <div><b>Prioridad:</b> 1</div>
-      </div>
-      <div class="historia-card__criterios">
-        <b>Criterios de aceptación:</b>
-        <ul>
-          <li>
-            El Sistema debe exigir la aceptación de los términos y condiciones
-            durante el registro de nuevos usuarios para autorizar el uso de la
-            aplicación, mediante un checkbox, si el usuario no acepta no podrá
-            utilizar la plataforma.
-          </li>
-          <li>
-            Cuando la plataforma tenga actualizaciones que modifique la forma
-            en que utiliza, usos funcionales, adiciones o supresiones de
-            funciones. El sistema debe exigir la aceptación de los términos y
-            condiciones.
-          </li>
-          <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-            cupiditate odit? Quia aperiam tempora ipsum, necessitatibus, error
-            rem corrupti aspernatur nam explicabo quod illum ullam, voluptas
-            deleniti? Repudiandae nisi nam accusamus quam voluptatum corrupti,
-            ducimus optio odit vero exercitationem cumque nobis beatae
-            provident aut neque maxime consequuntur molestiae amet distinctio?
-          </li>
-        </ul>
-      </div>
-      <div class="historia-card__footer">
-        <button class="btn btn-volver" onclick="window.location.href='./backlog.html'">Volver</button>
-      </div>
-    </section>
-  </main>
-  <script src="../js/sidebar-interactions.js"></script>
-  <script src="../js/sidebar-menu.js"></script>
-  <script src="../js/smooth-scroll.js"></script>
-  <!-- Menú de épicas -->
-  <script>
-    document.querySelectorAll(".cell-actions").forEach((cell) => {
-      const trigger = cell.querySelector(".menu-trigger");
-      const menu = cell.querySelector(".context-menu");
-      if (trigger && menu) {
-        trigger.addEventListener("click", (e) => {
-          e.stopPropagation();
-          document.querySelectorAll(".context-menu").forEach((m) => {
-            if (m !== menu) m.classList.remove("open");
+        <div class="historia-card__info">
+          <div><b>ID:</b> 4567</div>
+          <div><b>Prioridad:</b> 1</div>
+        </div>
+        <div class="historia-card__criterios">
+          <b>Criterios de aceptación:</b>
+          <ul>
+            <li>
+              El Sistema debe exigir la aceptación de los términos y condiciones
+              durante el registro de nuevos usuarios para autorizar el uso de la
+              aplicación, mediante un checkbox, si el usuario no acepta no podrá
+              utilizar la plataforma.
+            </li>
+            <li>
+              Cuando la plataforma tenga actualizaciones que modifique la forma
+              en que utiliza, usos funcionales, adiciones o supresiones de
+              funciones. El sistema debe exigir la aceptación de los términos y
+              condiciones.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              cupiditate odit? Quia aperiam tempora ipsum, necessitatibus, error
+              rem corrupti aspernatur nam explicabo quod illum ullam, voluptas
+              deleniti? Repudiandae nisi nam accusamus quam voluptatum corrupti,
+              ducimus optio odit vero exercitationem cumque nobis beatae
+              provident aut neque maxime consequuntur molestiae amet distinctio?
+            </li>
+          </ul>
+        </div>
+        <div class="historia-card__footer">
+          <button
+            class="btn btn-volver"
+            onclick="window.location.href='./backlog.html'"
+          >
+            Volver
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="../js/sidebar-interactions.js"></script>
+    <script src="../js/sidebar-menu.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+    <!-- Menú de épicas -->
+    <script>
+      document.querySelectorAll(".cell-actions").forEach((cell) => {
+        const trigger = cell.querySelector(".menu-trigger");
+        const menu = cell.querySelector(".context-menu");
+        if (trigger && menu) {
+          trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            document.querySelectorAll(".context-menu").forEach((m) => {
+              if (m !== menu) m.classList.remove("open");
+            });
+            menu.classList.toggle("open");
           });
-          menu.classList.toggle("open");
-        });
-      }
-    });
-    document.addEventListener("click", () => {
-      document
-        .querySelectorAll(".context-menu")
-        .forEach((menu) => menu.classList.remove("open"));
-    });
-    const epicToggle = document.getElementById("epicToggle");
-    const epicDropdown = document.getElementById("epicDropdown");
-    const epicList = document.getElementById("epicList");
-    const epicSelectedText = document.getElementById("epicSelectedText");
+        }
+      });
+      document.addEventListener("click", () => {
+        document
+          .querySelectorAll(".context-menu")
+          .forEach((menu) => menu.classList.remove("open"));
+      });
+      const epicToggle = document.getElementById("epicToggle");
+      const epicDropdown = document.getElementById("epicDropdown");
+      const epicList = document.getElementById("epicList");
+      const epicSelectedText = document.getElementById("epicSelectedText");
 
-    if (epicToggle && epicDropdown && epicList && epicSelectedText) {
-      epicToggle.addEventListener("click", function (e) {
-        e.stopPropagation();
-        epicDropdown.classList.toggle("open");
-      });
-      document.addEventListener("click", function () {
-        epicDropdown.classList.remove("open");
-      });
-      epicDropdown.addEventListener("click", function (e) {
-        e.stopPropagation();
-      });
-      epicList.querySelectorAll(".epic-dropdown__item").forEach((item) => {
-        item.addEventListener("click", function () {
-          epicList
-            .querySelectorAll(".epic-dropdown__item")
-            .forEach((i) => i.classList.remove("active"));
-          this.classList.add("active");
-          epicSelectedText.textContent =
-            this.querySelector("span").textContent;
-          epicDropdown.classList.remove("open");
-        });
-      });
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-      const trigger = document.getElementById("editMenuTrigger");
-      const tooltip = document.getElementById("editMenuTooltip");
-
-      if (trigger && tooltip) {
-        trigger.addEventListener("click", function (e) {
+      if (epicToggle && epicDropdown && epicList && epicSelectedText) {
+        epicToggle.addEventListener("click", function (e) {
           e.stopPropagation();
-          tooltip.classList.toggle("show");
+          epicDropdown.classList.toggle("open");
         });
         document.addEventListener("click", function () {
-          tooltip.classList.remove("show");
+          epicDropdown.classList.remove("open");
         });
-        tooltip.addEventListener("click", function (e) {
+        epicDropdown.addEventListener("click", function (e) {
           e.stopPropagation();
-          window.location.href = './backlog-historia-editar.html';
+        });
+        epicList.querySelectorAll(".epic-dropdown__item").forEach((item) => {
+          item.addEventListener("click", function () {
+            epicList
+              .querySelectorAll(".epic-dropdown__item")
+              .forEach((i) => i.classList.remove("active"));
+            this.classList.add("active");
+            epicSelectedText.textContent =
+              this.querySelector("span").textContent;
+            epicDropdown.classList.remove("open");
+          });
         });
       }
-    });
-  </script>
-</body>
+      document.addEventListener("DOMContentLoaded", function () {
+        const trigger = document.getElementById("editMenuTrigger");
+        const tooltip = document.getElementById("editMenuTooltip");
 
+        if (trigger && tooltip) {
+          trigger.addEventListener("click", function (e) {
+            e.stopPropagation();
+            tooltip.classList.toggle("show");
+          });
+          document.addEventListener("click", function () {
+            tooltip.classList.remove("show");
+          });
+          tooltip.addEventListener("click", function (e) {
+            e.stopPropagation();
+            window.location.href = "./backlog-historia-editar.html";
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

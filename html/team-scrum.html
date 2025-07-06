@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos, título y enlaces a hojas de estilo y fuentes externas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Scrum - Habilidades</title>
+    <link rel="stylesheet" href="../css/team-scrum.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+</head>
+<body>
+    <!-- Contenedor principal que envuelve toda la página -->
+    <div class="page-wrapper">
+
+        <!-- Contenido principal de la página -->
+        <main class="main-content">
+            <div class="container">
+                
+                <!-- Encabezado de la sección -->
+                <header>
+                    <div class="header-content">
+                        <h1><i class='bx bx-group'></i>Team scrum</h1>
+                        <p>Selecciona las habilidades clave de tu equipo para evaluar su perfil.</p>
+                    </div>
+                </header>
+
+                <!-- Contenedor para la grilla de habilidades y el panel de resumen -->
+                <main class="content-wrapper">
+                    
+                    <!-- Panel izquierdo: Grilla de habilidades seleccionables -->
+                    <div class="skills-container">
+                        <form class="skills-form">
+                            <div class="skills-grid">
+                                <!-- Las categorías y habilidades se renderizan aquí (estática o dinámicamente) -->
+                                <div class="skill-category">
+                                    <h3><i class='bx bx-code-alt'></i>Desarrollo</h3>
+                                    <div class="checkbox-group"><input type="checkbox" id="frontend"><label for="frontend">Front-End</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="fullstack"><label for="fullstack">Full-Stack</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="backend"><label for="backend">Back-End</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="devops"><label for="devops">DevOps</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="desktop"><label for="desktop">Software de Escritorio</label></div>
+                                </div>
+                                <div class="skill-category">
+                                    <h3><i class='bx bx-palette'></i>Diseño</h3>
+                                    <div class="checkbox-group"><input type="checkbox" id="ux-designer"><label for="ux-designer">Diseñador UX</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="ui-designer"><label for="ui-designer">Diseñador UI</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="interaction-designer"><label for="interaction-designer">Diseñador de Interacción</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="product-designer"><label for="product-designer">Product Designer</label></div>
+                                </div>
+                                <div class="skill-category">
+                                    <h3><i class='bx bx-line-chart'></i>Marketing</h3>
+                                    <div class="checkbox-group"><input type="checkbox" id="mkt-specialist"><label for="mkt-specialist">Marketing Specialist</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="mkt-coordinator"><label for="mkt-coordinator">Marketing Coordinator</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="seo-specialist"><label for="seo-specialist">SEO Specialist</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="email-specialist"><label for="email-specialist">Email Marketing Specialist</label></div>
+                                </div>
+                                <div class="skill-category">
+                                    <h3><i class='bx bx-briefcase-alt-2'></i>Product Managment</h3>
+                                    <div class="checkbox-group"><input type="checkbox" id="product-owner"><label for="product-owner">Product Owner</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="ux-manager"><label for="ux-manager">UX Product Manager</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="data-manager"><label for="data-manager">Data Product Manager</label></div>
+                                    <div class="checkbox-group"><input type="checkbox" id="product-analyst"><label for="product-analyst">Product Analyst</label></div>
+                                </div>
+                                <!-- Tarjeta para iniciar el proceso de añadir una nueva habilidad -->
+                                <div class="add-skill-card">
+                                    <div class="plus-icon">+</div>
+                                    <p>Añadir habilidad</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Panel derecho: Resumen de habilidades seleccionadas -->
+                    <aside class="selected-skills-summary">
+                        <!-- Encabezado del resumen con el círculo de progreso -->
+                        <div class="summary-header">
+                            <div class="profile-strength">
+                                <svg class="progress-ring" width="50" height="50">
+                                    <circle class="progress-ring__circle-bg" stroke-width="5" fill="transparent" r="20" cx="25" cy="25"/>
+                                    <circle id="profile-strength-circle" class="progress-ring__circle" stroke-width="5" fill="transparent" r="20" cx="25" cy="25"/>
+                                </svg>
+                                <div class="profile-strength-text">
+                                    <h3>Tu Perfil</h3>
+                                    <span id="profile-strength-status">Vacío</span>
+                                </div>
+                            </div>
+                            <button id="clear-all-btn" title="Limpiar todo"><i class='bx bx-trash'></i></button>
+                        </div>
+                        <!-- Contador de habilidades -->
+                        <div class="summary-count">
+                            Habilidades Seleccionadas: <span id="skill-count">0</span>
+                        </div>
+                        <!-- Lista donde se mostrarán las habilidades seleccionadas -->
+                        <ul id="selected-skills-list">
+                            <!-- Placeholder inicial cuando no hay habilidades -->
+                            <li class="no-skills-placeholder">
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 11h-3v3h-2v-3H8v-2h3V8h2v3h3v2z" fill="#d1d5db"/></svg>
+                                <span>Selecciona tus habilidades</span>
+                                <p>Aparecerán aquí para que puedas gestionarlas.</p>
+                            </li>
+                        </ul>
+                    </aside>
+                </main>
+
+                <!-- Pie de página con el botón principal de acción -->
+                <footer>
+                    <button class="continue-btn">Finalizar Elección</button>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- --- Modales --- -->
+
+    <!-- Modal para Añadir una Nueva Habilidad -->
+    <div id="add-skill-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Añadir Nueva Habilidad</h2>
+            <form id="add-skill-form">
+                <div class="form-group">
+                    <label for="new-skill-name">Nombre de la Habilidad</label>
+                    <input type="text" id="new-skill-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-skill-category">Categoría</label>
+                    <input type="text" id="new-skill-category" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Añadir Habilidad</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Confirmar la Limpieza de Habilidades -->
+    <div id="confirm-clear-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Confirmar Limpieza</h2>
+            <p>¿Estás seguro de que quieres eliminar todas las habilidades seleccionadas? Esta acción no se puede deshacer.</p>
+            <div class="modal-actions">
+                <button id="cancel-clear-btn" class="btn-secondary">Cancelar</button>
+                <button id="confirm-clear-btn" class="btn-danger">Sí, Limpiar Todo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar el Resumen Final de Habilidades -->
+    <div id="summary-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Resumen de Habilidades</h2>
+            <p>Has seleccionado las siguientes habilidades. ¡Buen trabajo!</p>
+            <div id="final-summary-list"></div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="close-summary-modal-btn" onclick="window.location.href='./funciones.html'">Continuar</button>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Script principal para la funcionalidad de la página -->
+    <script src="../js/team-scrum.js"></script>
+</body>
+</html>

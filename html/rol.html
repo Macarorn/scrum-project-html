@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Rol</title>
+  <meta name="viewport" content="width=1366, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/rol.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Boxicons CDN -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Sidebar fuera del .container para que ocupe toda la altura -->
+  <aside class="sidebar-menu">
+    <ul>
+      <li class="menu-item">
+        <a href="#"><i class="bx bx-menu"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+      </li>
+      <li class="menu-item active">
+        <a href="./equipo.html"><i class="bx bx-group"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+      </li>
+      <li class="menu-item">
+        <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+      </li>
+      <li class="menu-item">
+        <!-- <!-- <a href="#"><i class="bx bx-video"></i></a> --> 
+      </li>
+    </ul>
+    <!-- Menú inferior con icono de configuración -->
+    <div class="menu-item">
+      <a href="#"><i class="bx bx-cog"></i></a>
+    </div>
+  </aside>
+  <div class="container" style="margin-left: 20px; ">
+    <div class="main-content" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <div class="profile-card" style="margin: 0 auto;">
+        <button class="profile-edit" title="Editar"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#00304D" d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/></button>
+        <div class="profile-header">
+          <!-- <div class="profile-pic profile-user-pic" id="profilePic">
+            <img id="profileImg" src="" alt="Foto de perfil" style="display:none;width:100%;height:100%;object-fit:cover; border-radius: 50%;">
+            <span id="profileInitials" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <svg width="120" height="120" viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="105" cy="105" r="100" fill="#EDEDED"/>
+                <circle cx="105" cy="80" r="30" stroke="#39A900" stroke-width="6" fill="none"/>
+                <path d="M45 180c0-38 30-70 60-70s60 32 60 70" stroke="#39A900" stroke-width="6" fill="none"/>
+              </svg>
+            </span>
+          </div> -->
+          
+          <div class="profile-info">
+            <div style="display: flex; flex-direction: column; gap: 12px; min-width: 260px;">
+              <div class="profile-row" style="gap: 10px; align-items: flex-start; flex-direction: column;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <label for="roleSelect" style="font-size: 22px; color: #00304D; font-weight: 700;">Sofía Bonilla</label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                  <select id="roleSelect" class="role-select">
+                    <option>Desarrollador</option>
+                  </select>
+                  <button class="role-select" style="background:#39A900;color:#fff;min-width:180px; display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="window.location.href='./documentos.html';">
+                   <span class="material-icons" style="font-size:20px;">description</span>
+                   Documentos
+                  </button>
+                </div>
+                <div class="profile-details" style="display: flex; flex-direction: row; gap: 32px; width: 100%; margin-top: 18px; justify-content: space-between;">
+                  <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+                    <label style="font-size: 20px; color: #00304D; font-weight: 500; margin-bottom: 6px;">Años experiencia</label>
+                    <button class="role-select" id="expTag" contenteditable="true" style="text-align: center; min-width: 170px;">Dos años</button>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+                    <label style="font-size: 20px; color: #00304D; font-weight: 500; margin-bottom: 6px;">Habilidades</label>
+                    <button class="role-select" id="skillTag" contenteditable="true" style="text-align: center; min-width: 170px;">Diseño</button>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+                    <label style="font-size: 20px; color: #00304D; font-weight: 500; margin-bottom: 6px;">Fecha inicio</label>
+                    <button class="role-select" id="dateTag" contenteditable="true" style="text-align: center; min-width: 170px;">02/08/2023</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-section" style="margin-top: 24px; width: 100%;">
+          <label style="font-weight:500;color:#00304D;font-size:16px;margin-bottom:12px;display:block;margin-left:8px;">Equipo</label>
+          <div class="team-carousel" id="teamCarousel" style="max-width: 100%; gap: 32px; overflow-x: auto; padding-bottom: 8px;">
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="19" cy="19" r="18" stroke="#00304D" stroke-width="3" fill="#fff"/>
+                  <circle cx="19" cy="13" r="5" fill="#00304D"/>
+                  <path d="M8 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#00304D"/>
+                </svg>
+              </div>
+              <div class="team-name">nombre</div>
+            </div>
+          </div>
+          <div class="team-controls" style="margin-top: 12px; justify-content: space-between; display: flex; width: 100%; gap: 24px;">
+            <button id="addMemberBtn" style="color:#39A900; display: flex; align-items: center; gap:8px; font-size:18px; background:none; border:none; cursor:pointer;">
+              <span class="material-icons" style="font-size:22px;">add_circle</span><span style="font-size:16px;">Agregar</span>
+            </button>
+            <button id="removeMemberBtn" style="color:#39A900; display: flex; align-items: center; gap:8px; font-size:18px; background:none; border:none; cursor:pointer;">
+              <span class="material-icons" style="font-size:22px;">delete</span><span style="font-size:16px;">Eliminar</span>
+            </button>
+          </div>
+        </div>
+        <h4 style="font-size: 20px; color: #00304D; font-weight: 700; margin-bottom: 10px; margin-top: 32px;">Historial de reuniones</h4>
+        <div class="meetings-section" style="margin-top: 0;">
+          <table class="meetings-table">
+            <thead>
+              <tr>
+                <th>Equipo</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+              </tr>
+            </thead>
+            <tbody id="meetingsBody">
+              <tr>
+                <td>nombre</td>
+                <td>nombre</td>
+                <td>00/00/00</td>
+                <td>00:00 am</td>
+              </tr>
+              <tr>
+                <td>nombre</td>
+                <td>nombre</td>
+                <td>00/00/00</td>
+                <td>00:00 am</td>
+              </tr>
+              <tr>
+                <td>nombre</td>
+                <td>nombre</td>
+                <td>00/00/00</td>
+                <td>00:00 am</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sprint-goals" style="align-self: center;">
+        <h4>Metas sprint</h4>
+        <div class="progress-circle">
+          <svg>
+            <circle cx="55" cy="55" r="48" stroke="#EDEDED" stroke-width="12" fill="none"/>
+            <circle cx="55" cy="55" r="48" stroke="#39A900" stroke-width="12" fill="none" stroke-dasharray="301.59" stroke-dashoffset="165.87"/>
+          </svg>
+          <div class="progress-text">45%</div>
+        </div>
+        <ul class="sprint-list">
+          <li><span class="check">&#10003;</span> Historias de usuario</li>
+          <li><span class="check">&#10003;</span> Historias de usuario</li>
+          <li><span class="check">&#10003;</span> Diseños</li>
+          <li><span class="check">&#10003;</span> Diseños</li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  <script src="../js/rol.js"></script>
+</body>
+</html>

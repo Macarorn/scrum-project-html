@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos y configuración del documento -->
+    <meta charset="UTF-8" />
+    <title>Visualización de Proyecto</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <link rel="stylesheet" href="../css/visualizacion-proyecto.css" />
+    <!-- Estilos para la visualización de proyectos -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Iconos de Boxicons -->
+  </head>
+  <body>
+    <!-- Menú lateral de navegación -->
+    <div class="container">
+      <aside class="sidebar-menu">
+        <ul>
+          <li class="menu-item">
+            <a href="#"><i class="bx bx-menu"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./equipo.html"><i class="bx bx-group"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+          </li>
+          <li class="menu-item active">
+            <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+          </li>
+          <li class="menu-item">
+            <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+          </li>
+        </ul>
+        <div class="menu-bottom">
+          <a href="#"><i class="bx bx-cog"></i></a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Contenedor principal del contenido -->
+    <main class="main-container">
+      <!-- Encabezado de la página -->
+      <div class="page-header">
+        <h1>Detalles del Proyecto</h1>
+      </div>
+      <!-- Tarjeta principal del proyecto -->
+      <div class="project-card">
+        <button class="edit-btn"><i class="bx bxs-pencil"></i></button>
+
+        <!-- Encabezado del proyecto con icono e información básica -->
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="bx bx-store"></i>
+          </div>
+          <div class="project-info">
+            <!-- Campo: Nombre del proyecto -->
+            <div class="info-field">
+              <label for="project-name">Nombre del proyecto</label>
+              <input type="text" id="project-name" value="Tienda de ropa" />
+            </div>
+            <!-- Campo: Fecha de inicio -->
+            <div class="info-field">
+              <label for="start-date">Fecha inicio</label>
+              <input type="text" id="start-date" value="02/08/2025" />
+            </div>
+            <!-- Campo: Rol asignado -->
+            <div class="info-field">
+              <label for="assigned-role">Rol asignado</label>
+              <input type="text" id="assigned-role" value="Product Owner" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Cuerpo de la tarjeta del proyecto -->
+        <div class="project-body">
+          <!-- Sección de progreso del proyecto -->
+          <div class="progress-section">
+            <h3>Avance del proyecto</h3>
+            <div class="progress-circle" style="--progress: 75">
+              <div class="progress-circle-inner">
+                <span>75%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Sección del equipo -->
+          <div class="team-section">
+            <h3>Equipo</h3>
+            <div class="team-members">
+              <!-- Miembros del equipo con avatares -->
+              <div class="member">
+                <img
+                  src="https://randomuser.me/api/portraits/women/1.jpg"
+                  alt="miembro"
+                /><span>Ana</span>
+              </div>
+              <div class="member">
+                <img
+                  src="https://randomuser.me/api/portraits/men/2.jpg"
+                  alt="miembro"
+                /><span>Carlos</span>
+              </div>
+              <div class="member">
+                <img
+                  src="https://randomuser.me/api/portraits/women/3.jpg"
+                  alt="miembro"
+                /><span>Laura</span>
+              </div>
+              <div class="member">
+                <img
+                  src="https://randomuser.me/api/portraits/men/4.jpg"
+                  alt="miembro"
+                /><span>David</span>
+              </div>
+              <div class="member">
+                <img
+                  src="https://randomuser.me/api/portraits/women/5.jpg"
+                  alt="miembro"
+                /><span>Sofía</span>
+              </div>
+              <a
+                href="equipo.html"
+                class="team-more-btn"
+                title="Ver equipo completo"
+                ><i class="bx bx-chevron-right"></i
+              ></a>
+            </div>
+            <!-- Acciones del equipo: Agregar o Eliminar -->
+            <div class="team-actions">
+              <button class="btn-team add">
+                <i class="bx bx-plus"></i> Añadir
+              </button>
+              <button class="btn-team remove">
+                <i class="bx bx-trash"></i> Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de otros proyectos -->
+      <section class="other-projects">
+        <div class="other-projects-header">
+          <h2>Otros proyectos</h2>
+          <button class="add-project-btn"><i class="bx bx-plus"></i></button>
+        </div>
+        <!-- Cuadrícula de otros proyectos -->
+        <div class="projects-grid">
+          <!-- Tarjeta pequeña de proyecto: App de Finanzas -->
+          <div class="small-card">
+            <div class="small-card-header">
+              <div class="small-card-team">
+                <img
+                  src="https://randomuser.me/api/portraits/men/6.jpg"
+                  alt="avatar"
+                />
+                <img
+                  src="https://randomuser.me/api/portraits/women/7.jpg"
+                  alt="avatar"
+                />
+                <span class="avatar-plus">+3</span>
+              </div>
+              <i class="bx bxs-info-circle"></i>
+            </div>
+            <div class="small-card-body">
+              <p class="small-card-title">App de Finanzas</p>
+              <span class="small-card-epic">Épica</span>
+            </div>
+            <div class="small-card-footer">
+              <div class="dual-progress">
+                <div class="progress-bar-sm" style="width: 65%"></div>
+                <div class="progress-bar-sm secondary" style="width: 35%"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Tarjeta pequeña de proyecto: Web Corporativa -->
+          <div class="small-card">
+            <div class="small-card-header">
+              <div class="small-card-team">
+                <img
+                  src="https://randomuser.me/api/portraits/men/8.jpg"
+                  alt="avatar"
+                />
+                <span class="avatar-plus">+6</span>
+              </div>
+              <i class="bx bxs-info-circle"></i>
+            </div>
+            <div class="small-card-body">
+              <p class="small-card-title">Web Corporativa</p>
+              <span class="small-card-epic">Épica</span>
+            </div>
+            <div class="small-card-footer">
+              <div class="dual-progress">
+                <div class="progress-bar-sm" style="width: 45%"></div>
+                <div class="progress-bar-sm secondary" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Tarjeta pequeña de proyecto: Intranet RRHH -->
+          <div class="small-card">
+            <div class="small-card-header">
+              <div class="small-card-team">
+                <img
+                  src="https://randomuser.me/api/portraits/women/9.jpg"
+                  alt="avatar"
+                />
+                <img
+                  src="https://randomuser.me/api/portraits/men/10.jpg"
+                  alt="avatar"
+                />
+                <span class="avatar-plus">+5</span>
+              </div>
+              <i class="bx bxs-info-circle"></i>
+            </div>
+            <div class="small-card-body">
+              <p class="small-card-title">Intranet RRHH</p>
+              <span class="small-card-epic">Épica</span>
+            </div>
+            <div class="small-card-footer">
+              <div class="dual-progress">
+                <div class="progress-bar-sm" style="width: 30%"></div>
+                <div class="progress-bar-sm secondary" style="width: 50%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Script para funcionalidades del menú lateral -->
+    <script src="../js/sidebar-menu.js"></script>
+  </body>
+</html>

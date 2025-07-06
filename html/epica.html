@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Épicas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style-epica.css" />
+    <link rel="stylesheet" href="../css/sidebar-menul.css" />
+    <link rel="stylesheet" href="../css/style-epica-cards.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: light)"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="%2339A900" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: dark)"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
+    />
+  </head>
+
+  <body>
+    <!-- menú side-bar -->
+    <aside class="sidebar-menu">
+      <ul>
+        <li class="menu-item">
+          <a href="#"><i class="bx bx-menu"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./equipo.html"><i class="bx bx-group"></i></a>
+        </li>
+        <li class="menu-item active">
+          <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+        </li>
+        <li class="menu-item">
+          <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+        </li>
+      </ul>
+      <!-- Menú inferior con icono de configuración -->
+      <div class="menu-bottom">
+        <a href="#"><i class="bx bx-cog"></i></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <!-- header y desplegable -->
+      <header class="header">
+        <h1 class="header__title">
+          <span class="backlog-title-icon">
+            <svg
+              width="38"
+              height="38"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              transform=""
+              id="injected-svg"
+            >
+              <!--Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free-->
+              <path
+                d="m20,4H4c-1.1,0-2,.9-2,2v12c0,1.1.9,2,2,2h16c1.1,0,2-.9,2-2V6c0-1.1-.9-2-2-2ZM4,18V6h16v12s-16,0-16,0Z"
+              ></path>
+              <path d="M6 14H18V16H6z"></path>
+              <path d="M6 8H10V12H6z"></path>
+            </svg>
+          </span>
+          Épicas
+        </h1>
+        <div class="actions">
+          <div class="search">
+            <!-- search icon -->
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.6582 21.6162L19.79 16.748C19.5703 16.5283 19.2725 16.4062 18.96 16.4062H18.1641C19.5117 14.6826 20.3125 12.5146 20.3125 10.1562C20.3125 4.5459 15.7666 0 10.1562 0C4.5459 0 0 4.5459 0 10.1562C0 15.7666 4.5459 20.3125 10.1562 20.3125C12.5146 20.3125 14.6826 19.5117 16.4062 18.1641V18.96C16.4062 19.2725 16.5283 19.5703 16.748 19.79L21.6162 24.6582C22.0752 25.1172 22.8174 25.1172 23.2715 24.6582L24.6533 23.2764C25.1123 22.8174 25.1123 22.0752 24.6582 21.6162ZM10.1562 16.4062C6.7041 16.4062 3.90625 13.6133 3.90625 10.1562C3.90625 6.7041 6.69922 3.90625 10.1562 3.90625C13.6084 3.90625 16.4062 6.69922 16.4062 10.1562C16.4062 13.6084 13.6133 16.4062 10.1562 16.4062Z"
+                fill="#39A900"
+              />
+            </svg>
+            <input type="search" placeholder="Buscar" />
+          </div>
+          <!-- <button class="btn btn-new" disabled>Sprints</button> -->
+        </div>
+      </header>
+      <!-- Contenido principal -->
+      <section class="table">
+        <div class="epica-actions">
+          <div class="card new-epica">
+            <i class="bx bxs-plus-circle"></i>
+            <span>Crear nueva Épica</span>
+          </div>
+          <div class="card upload-doc">
+            <i class="bx bx-upload"></i>
+            <span>Subir documento</span>
+          </div>
+        </div>
+
+        <div class="epica-toggle">
+          <button class="toggle active">Épicas</button>
+          <button class="toggle">Documentos</button>
+        </div>
+        <!-- Sección de épicas -->
+        <div class="epica-grid">
+          <a href="epica-in.html" class="epica-card">
+            <h3>Épica 1</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">7</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </a>
+          <div class="epica-card">
+            <h3>Épica 2</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">8</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 3</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">16</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 4</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">12</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 5</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">4</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 6</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">3</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 7</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">10</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 8</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">17</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 9</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">9</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 10</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">5</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 11</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">6</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Épica 12</h3>
+            <div class="epica-info">
+              <p>H. Usuario</p>
+              <span class="count">14</span>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+        </div>
+        <!-- Seccioon de documentos -->
+        <div class="documento-grid hidden">
+          <div class="epica-card">
+            <h3>Registro clientes</h3>
+            <div class="epica-info">
+              <p>Excel</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Feedback de Stake holders</h3>
+            <div class="epica-info">
+              <p>Documento</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Documentos internos</h3>
+            <div class="epica-info">
+              <p>Carpetas</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Listas de Features</h3>
+            <div class="epica-info">
+              <p>Documento</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Nuevos Requerimientos</h3>
+            <div class="epica-info">
+              <p>Documento</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Plan de proyecto</h3>
+            <div class="epica-info">
+              <p>Excel</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+          <div class="epica-card">
+            <h3>Especificaciones técnicas</h3>
+            <div class="epica-info">
+              <p>Carpeta</p>
+            </div>
+            <span class="menu-trigger">⋮</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Scripts -->
+    <script src="../js/sidebar-interactions.js"></script>
+    <script src="../js/sidebar-menu.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+    <script src="../js/epica-toggle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Épicas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style-epica.css" />
+    <link rel="stylesheet" href="../css/sidebar-menu.css" />
+    <link rel="stylesheet" href="../css/style-epica-in.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: light)"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="%2339A900" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: dark)"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24"><path d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"/><path d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"/></svg>'
+    />
+  </head>
+
+  <body>
+    <!-- menú side-bar -->
+    <aside class="sidebar-menu">
+      <ul>
+        <li class="menu-item">
+          <a href="#"><i class="bx bx-menu"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./equipo.html"><i class="bx bx-group"></i></a>
+        </li>
+        <li class="menu-item active">
+          <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+        </li>
+        <li class="menu-item">
+          <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+        </li>
+        <li class="menu-item">
+          <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+        </li>
+      </ul>
+      <!-- Menú inferior con icono de configuración -->
+      <div class="menu-bottom">
+        <a href="#"><i class="bx bx-cog"></i></a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <!-- header y desplegable -->
+      <header class="header">
+        <h1 class="header__title">
+          <span class="backlog-title-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="38"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6.71 18.71 14 11.41 14 16 16 16 16 8 8 8 8 10 12.59 10 5.29 17.29 6.71 18.71z"
+              ></path>
+              <path
+                d="m12,2c-2.67,0-5.18,1.04-7.07,2.93s-2.93,4.4-2.93,7.07h2c0-2.14.83-4.15,2.34-5.66s3.52-2.34,5.66-2.34,4.15.83,5.66,2.34,2.34,3.52,2.34,5.66-.83,4.15-2.34,5.66-3.52,2.34-5.66,2.34v2c2.67,0,5.18-1.04,7.07-2.93s2.93-4.4,2.93-7.07-1.04-5.18-2.93-7.07-4.4-2.93-7.07-2.93Z"
+              ></path>
+            </svg>
+          </span>
+          Épicas
+        </h1>
+      </header>
+      <!-- Gestor de Historia -->
+      <section class="historia-card">
+        <section class="historia-card-wrapper">
+          <div class="epica-detail">
+            <h2>Épica 1</h2>
+            <div class="epica-fields">
+              <div>
+                <strong>Como:</strong><br />
+                Usuario de la plataforma
+              </div>
+              <div>
+                <strong>Quiero:</strong><br />
+                Una página de registro e inicio de sesión
+              </div>
+              <div>
+                <strong>Para:</strong><br />
+                Acceder a la plataforma para acceder a sus funcionalidades
+              </div>
+            </div>
+            <button class="btn-volver" onclick="history.back()">Volver</button>
+          </div>
+
+          <div class="historia-list">
+            <div class="historia-list__header">
+              <span>Historias de usuario</span>
+              <i class="bx bx-share-alt"></i>
+            </div>
+            <div class="historia-list__items">
+              <div class="historia-list__item">
+                <div class="historia-list__item-content">
+                  <h3>Bug 3</h3>
+                  <span class="historia-id">#39843</span>
+                  <button class="status Activo">Activo</button>
+                </div>
+                <span class="menu-trigger">⋮</span>
+              </div>
+              <div class="historia-list__item">
+                <div class="historia-list__item-content">
+                  <h3>Tarea 1</h3>
+                  <span class="historia-id">#4567</span>
+                  <button class="status Archivado">Archivado</button>
+                </div>
+                <span class="menu-trigger">⋮</span>
+              </div>
+              <div class="historia-list__item">
+                <div class="historia-list__item-content">
+                  <h3>Feature 8</h3>
+                  <span class="historia-id">#1234</span>
+                  <button class="status Pendiente">Pendiente</button>
+                </div>
+                <span class="menu-trigger">⋮</span>
+              </div>
+              <!-- Historias extra para mostrar el scroll -->
+              <div class="historia-list__item">
+                <div class="historia-list__item-content">
+                  <h3>Bug 4</h3>
+                  <span class="historia-id">#39844</span>
+                  <button class="status Activo">Activo</button>
+                </div>
+                <span class="menu-trigger">⋮</span>
+              </div>
+              <div class="historia-list__item">
+                <div class="historia-list__item-content">
+                  <h3>Tarea 2</h3>
+                  <span class="historia-id">#4568</span>
+                  <button class="status Archivado">Archivado</button>
+                </div>
+                <span class="menu-trigger">⋮</span>
+              </div>
+              <div class="historia-list__item">
+                <div class="historia-list__item-content">
+                  <h3>Feature 9</h3>
+                  <span class="historia-id">#1235</span>
+                  <button class="status Pendiente">Pendiente</button>
+                </div>
+                <span class="menu-trigger">⋮</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="../js/sidebar-interactions.js"></script>
+    <script src="../js/sidebar-menu.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+  </body>
+</html>

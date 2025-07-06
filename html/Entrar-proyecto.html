@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos y enlaces a hojas de estilo -->
+    <meta charset="UTF-8" />
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="../css/entrar-proyecto.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Menú lateral de navegación -->
+    <div class="container">
+      <aside class="sidebar-menu">
+        <ul>
+          <li class="menu-item">
+            <a href="#"><i class="bx bx-menu"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./perfil-personal.html"><i class="bx bx-user"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./equipo.html"><i class="bx bx-group"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./backlog.html"><i class="bx bxs-grid-alt"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./metricas.html"><i class="bx bx-bar-chart-alt-2"></i></a>
+          </li>
+          <li class="menu-item active">
+            <a href="./Entrar-proyecto.html"><i class="bx bx-folder"></i></a>
+          </li>
+          <li class="menu-item">
+            <a href="./calendario.html"><i class="bx bx-calendar"></i></a>
+          </li>
+          <li class="menu-item">
+            <!-- <a href="#"><i class="bx bx-video"></i></a> -->
+          </li>
+        </ul>
+        <div class="menu-bottom">
+          <a href="#"><i class="bx bx-cog"></i></a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Contenedor principal de la página -->
+    <div class="buscar-container">
+      <!-- Cabecera principal con título y acciones -->
+      <div class="main-header">
+        <h1 class="main-title">
+          <i class="bx bxs-grid-alt"></i>
+          <span>Proyectos</span>
+        </h1>
+        <!-- Acciones principales: buscar y crear proyecto -->
+        <div class="main-actions">
+          <div class="search-wrapper">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Buscar proyecto..." />
+          </div>
+          <button class="btn btn-primary">
+            <i class="bx bx-plus"></i>
+            <a class="btn-empezar" href="selec.html"
+              ><span>Crear Proyecto</span></a
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid para mostrar las tarjetas de los proyectos -->
+      <div class="proyectos-grid">
+        <!-- Tarjeta de proyecto individual -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">App de Finanzas</h3>
+              <span class="card-sprint">Sprint 2</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 65%"></div>
+            </div>
+            <span class="progress-percent">65%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/1.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/1.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+3</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 3 días</span
+            >
+          </div>
+        </div>
+        <!-- Repetición de tarjetas de proyecto (ejemplos) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">E-commerce Moda</h3>
+              <span class="card-sprint">Catálogo</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 80%"></div>
+            </div>
+            <span class="progress-percent">80%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/2.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/2.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+6</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 1 día</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Web Corporativa</h3>
+              <span class="card-sprint">Diseño UI</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 45%"></div>
+            </div>
+            <span class="progress-percent">45%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/3.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/3.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+2</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 8 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Intranet RRHH</h3>
+              <span class="card-sprint">Integración</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 30%"></div>
+            </div>
+            <span class="progress-percent">30%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/4.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/4.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+4</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 12 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Plataforma Educativa</h3>
+              <span class="card-sprint">Backend API</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 95%"></div>
+            </div>
+            <span class="progress-percent">95%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/5.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/5.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+1</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza hoy</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Dashboard Analítico</h3>
+              <span class="card-sprint">Visualización</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 15%"></div>
+            </div>
+            <span class="progress-percent">15%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/6.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/6.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+5</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Inicia mañana</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">App de Viajes</h3>
+              <span class="card-sprint">Investigación</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 5%"></div>
+            </div>
+            <span class="progress-percent">5%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/7.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+2</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Inicia en 2 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Sistema de Reservas</h3>
+              <span class="card-sprint">Testing</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 98%"></div>
+            </div>
+            <span class="progress-percent">98%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/8.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/8.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/9.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+1</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finalizado</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">CRM Inmobiliario</h3>
+              <span class="card-sprint">Despliegue</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 85%"></div>
+            </div>
+            <span class="progress-percent">85%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/10.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/10.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+2</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 5 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">App de Meditación</h3>
+              <span class="card-sprint">Contenido</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 50%"></div>
+            </div>
+            <span class="progress-percent">50%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/11.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+3</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 10 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Juego Móvil 2D</h3>
+              <span class="card-sprint">Prototipo</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 20%"></div>
+            </div>
+            <span class="progress-percent">20%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/12.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/12.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/13.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+4</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Inicia en 1 semana</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Red Social de Nicho</h3>
+              <span class="card-sprint">Beta Privada</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 75%"></div>
+            </div>
+            <span class="progress-percent">75%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/14.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+8</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 2 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Herramienta SEO</h3>
+              <span class="card-sprint">QA</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 90%"></div>
+            </div>
+            <span class="progress-percent">90%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/15.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/15.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+1</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza mañana</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Blog de Cocina</h3>
+              <span class="card-sprint">Rediseño</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 40%"></div>
+            </div>
+            <span class="progress-percent">40%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/16.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+1</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 15 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Portafolio Fotográfico</h3>
+              <span class="card-sprint">Galerías</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 100%"></div>
+            </div>
+            <span class="progress-percent">100%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/17.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Completado</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">App de Noticias</h3>
+              <span class="card-sprint">API Externa</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 60%"></div>
+            </div>
+            <span class="progress-percent">60%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/18.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/18.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+3</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 6 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Marketplace Local</h3>
+              <span class="card-sprint">Pasarela de Pagos</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 35%"></div>
+            </div>
+            <span class="progress-percent">35%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/men/19.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/19.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <span class="avatar-plus">+7</span>
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 20 días</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Gestor de Tareas</h3>
+              <span class="card-sprint">Notificaciones</span>
+            </div>
+            <button class="card-menu-btn">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+          </div>
+          <div class="card-progress">
+            <div class="progress-bar">
+              <div class="progress-value" style="width: 88%"></div>
+            </div>
+            <span class="progress-percent">88%</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-team">
+              <img
+                src="https://randomuser.me/api/portraits/women/20.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/20.jpg"
+                alt="avatar"
+                class="avatar"
+              />
+            </div>
+            <span class="card-date"
+              ><i class="bx bx-time-five"></i>Finaliza en 4 días</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts de JavaScript -->
+    <script src="../js/rol-icon.js"></script>
+    <script src="../js/sidebar-menu.js"></script>
+    <script src="../js/entrar-proyecto.js"></script>
+  </body>
+</html>

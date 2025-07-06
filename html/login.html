@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Scrum</title>
+  <link rel="stylesheet" href="../css/stylos-login.css">
+  <script src="https://kit.fontawesome.com/a2e0e6e6c2.js" crossorigin="anonymous"></script>
+  <!-- Usa la misma versión de Firebase en todos tus archivos -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <p class="bienvenida-texto">
+        <strong>¡Bienvenido!</strong><br>
+        Accede a tu cuenta y <br>
+        descubre todo lo que <br>
+        tenemos para ti.
+      </p>
+    </div>
+    <div class="right">
+      <form class="login-form" onsubmit="return false;">
+        <h2>Bienvenidos a <span class="highlight">Scrum</span></h2>
+
+        <button id="googleLoginBtn" class="google-btn" type="button">
+          <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo"/>
+          Iniciar sesión con Google
+        </button>
+
+        <div class="input-group">
+          <label for="email" style="display:none;">Correo electrónico</label>
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password" style="display:none;">Contraseña</label>
+          <i class="fas fa-key"></i>
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+        </div>
+
+        <div class="options">
+          <label>
+            <input type="checkbox" id="terms" required> Aceptar términos y condiciones
+          </label>
+          <a href="cambio-contraseña.html" class="link">¿Olvidó su contraseña?</a>
+        </div>
+
+        <a href="crear-proyect.html" class="login-btn">Iniciar sesión</a>
+
+        <p class="register">
+          ¿No tienes una cuenta?
+          <a href="registrarse.html" id="showRegister">Registro</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/login.js" defer></script>
+</body>
+</html>

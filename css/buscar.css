@@ -1,0 +1,217 @@
+/* Importa la fuente DM Sans desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* --- ESTILOS GENERALES DEL CUERPO --- */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f6fa; /* Color de respaldo */
+    
+    background-image: radial-gradient(circle at 1% 1%, #eaf6e9 0%, transparent 25%),
+                      radial-gradient(circle at 99% 99%, #e9f0f6 0%, transparent 25%);
+    position: relative;
+}
+
+/* --- CONTENEDOR PRINCIPAL DE BÚSQUEDA --- */
+.buscar-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 40px auto 0 auto;
+    padding: 38px 38px 48px 38px;
+    border-radius: 24px;
+    background: #fff;
+    /* Sombra más pronunciada para un efecto de elevación */
+    box-shadow: 0 12px 40px rgba(44,62,80,0.12), 0 2px 6px rgba(44,62,80,0.08);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eef2f7; /* Borde sutil */
+    transition: all 0.3s ease;
+}
+
+/* --- DECORACIÓN DE ESQUINAS PARA LA TARJETA PRINCIPAL --- */
+.buscar-container::before,
+.buscar-container::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: #39A900; /* Color verde principal */
+    border-style: solid;
+    opacity: 0.4;
+    transition: all 0.4s ease;
+}
+
+.buscar-container::before {
+    top: 20px;
+    left: 20px;
+    border-width: 3px 0 0 3px; /* Bordes superior e izquierdo */
+    border-top-left-radius: 20px;
+}
+
+.buscar-container::after {
+    bottom: 20px;
+    right: 20px;
+    border-width: 0 3px 3px 0; /* Bordes inferior y derecho */
+    border-bottom-right-radius: 20px;
+}
+
+/* Animación de las esquinas al pasar el ratón */
+.buscar-container:hover::before {
+    transform: translate(-5px, -5px);
+    opacity: 1;
+}
+
+.buscar-container:hover::after {
+    transform: translate(5px, 5px);
+    opacity: 1;
+}
+
+
+/* --- CABECERA DE LA SECCIÓN DE BÚSQUEDA --- */
+.buscar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 38px;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+/* --- TÍTULO DE LA PÁGINA --- */
+.buscar-titulo {
+    background: #fff;
+    color: #39A900;
+    font-weight: 700;
+    font-size: 2.2rem;
+    padding: 10px 38px 10px 28px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(67,160,71,0.07);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    letter-spacing: 1px;
+    border-left: 7px solid #39A900;
+    border-bottom: 2px solid #e3e6f3;
+}
+.buscar-titulo i {
+    font-size: 2.2rem;
+    color: #39A900;
+    background: #f5f6fa;
+    border-radius: 50%;
+    padding: 7px;
+    margin-right: 8px;
+}
+
+/* --- CUADRÍCULA DE PROYECTOS --- */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 38px 38px;
+    margin-top: 10px;
+    width: 100%;
+    flex: 1;
+}
+
+/* --- TARJETA DE PROYECTO INDIVIDUAL --- */
+.proyecto-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 10px 22px 10px;
+    transition: transform 0.13s, box-shadow 0.13s;
+    cursor: pointer;
+    position: relative;
+    min-height: 210px;
+    border: 2.5px solid #e3e6f3;
+    text-align: center;
+}
+.proyecto-card:hover {
+    transform: translateY(-7px) scale(1.04);
+    box-shadow: 0 12px 32px rgba(67,160,71,0.18);
+    border-color: #39A900;
+}
+
+/* --- ICONO Y NOMBRE DEL PROYECTO EN LA TARJETA --- */
+.proyecto-icon {
+    font-size: 3.8rem;
+    color: #39A900;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 2px 8px #39A90022);
+    transition: color 0.2s;
+    display: block;
+    text-align: center;
+}
+.proyecto-card:hover .proyecto-icon {
+    color: #222;
+}
+
+/* --- ESTILO PARA LA TARJETA SELECCIONADA --- */
+.proyecto-card.selected {
+    transform: translateY(-7px) scale(1.04);
+    box-shadow: 0 12px 32px rgba(57, 169, 0, 0.25);
+    border: 2.5px solid #39A900;
+}
+
+.proyecto-card.selected .proyecto-icon {
+    color: #222;
+}
+
+.proyecto-nombre {
+    color: #222;
+    font-size: 1.18rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 0 #fff;
+    font-family: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+    display: block;
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDAD --- */
+@media (max-width: 700px) {
+    .buscar-container {
+        padding: 12px 2vw 24px 2vw;
+        min-height: 100vh;
+    }
+    .buscar-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+}
+
+/* --- BOTÓN DE SIGUIENTE --- */
+.siguiente-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* Cambiado de 'left' a 'right' */
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #39A900, #2e8b00);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(57, 169, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none; /* No se puede hacer clic cuando está oculto */
+}
+
+.siguiente-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Se puede hacer clic cuando es visible */
+}

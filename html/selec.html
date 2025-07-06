@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos y configuración del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Proyecto</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <link rel="stylesheet" href="../css/selec.css"> <!-- Estilos específicos para esta página -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> <!-- Iconos de Boxicons -->
+</head>
+<body>
+    <!-- Tarjeta del formulario para crear un proyecto -->
+    <div class="form-card">
+        <!-- CABECERA: Ahora contiene el icono y el título para un mejor diseño -->
+        <div class="form-header">
+            <!-- Contenedor para el icono del tipo de proyecto -->
+            <div id="tipo-proyecto-icon-container">
+                <!-- El icono se insertará aquí con JavaScript -->
+            </div>
+            <h2 class="form-title">Crear Proyecto</h2>
+        </div>
+
+        <!-- Formulario del proyecto -->
+        <form class="project-form">
+            <!-- Sección izquierda del formulario -->
+            <div class="form-left">
+                <label class="form-label">¿Qué tipo de proyecto es?</label>
+                <!-- Selector para el tipo de proyecto -->
+                <select id="tipo-proyecto-select" class="form-input">
+                  <option value="">Selecciona un tipo</option>
+                  <option value="software">Desarrollo de software</option>
+                  <option value="marketing">Campaña de marketing</option>
+                  <option value="evento">Evento corporativo</option>
+                  <option value="educativo">Proyecto educativo</option>
+                  <option value="investigacion">Investigación</option>
+                  <option value="startup">Startup</option>
+                  <option value="infraestructura">Infraestructura</option>
+                  <option value="diseno">Diseño gráfico</option>
+                  <option value="finanzas">Finanzas</option>
+                  <option value="recursos-humanos">Recursos Humanos</option>
+                  <option value="logistica">Logística</option>
+                  <option value="sustentabilidad">Sustentabilidad</option>
+                  <option value="salud">Salud</option>
+                  <option value="legal">Legal</option>
+                  <option value="otro">Otro</option>
+                </select>
+                <!-- El contenedor del icono se ha movido a la cabecera -->
+            </div>
+            <!-- Sección derecha del formulario -->
+            <div class="form-right">
+                <label class="form-label">¿Cuántos integrantes requiere el grupo?</label>
+                <!-- Campo para el número de integrantes -->
+                <input type="number" id="integrantes" class="form-input" min="1" placeholder="Ej: 5">
+                <label class="form-label" style="margin-top: 20px;">Nombre del proyecto</label>
+                <!-- Campo para el nombre del proyecto -->
+                <input type="text" class="form-input" placeholder="Escribe un nombre">
+            </div>
+        </form>
+        <!-- Botón para ir al siguiente paso (movido fuera del form) -->
+        <button type="button" class="next-btn" id="btn-siguiente" >
+            Siguiente <i class='bx bx-right-arrow-alt'></i>
+        </button>
+    </div>
+
+    <!-- Scripts para funcionalidades adicionales -->
+    <script src="../js/scrum-icons.js"></script> <!-- Script para iconos de Scrum -->
+    <script src="../js/tipo-proyecto-icon.js"></script> <!-- Script para gestionar el icono del tipo de proyecto -->
+</body>
+</html>

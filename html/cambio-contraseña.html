@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crea una contraseña segura</title>
+  <link rel="stylesheet" href="../css/stylos-login.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <p class="bienvenida-texto">
+        <strong>Crea una contraseña única y segura para proteger tu cuenta.</strong>
+      </p>
+    </div>
+
+    <div class="right">
+      <!-- ① ‑ Añadimos action para que, si quisieras, pudiera enviarse a un servidor.
+             Como aquí lo manejamos por JS, no es imprescindible -->
+      <form class="login-form" id="password-form" novalidate>
+        <h2>Crea una contraseña <span class="highlight">segura</span></h2>
+        <p style="font-size:12px; color:#444; margin-top:-10px; margin-bottom:10px;">
+          Usa letras, números y símbolos combinados.
+        </p>
+
+        <div class="input-group">
+          <input type="password" id="new-password" placeholder="Contraseña" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="confirm-password" placeholder="Confirmar contraseña" required>
+        </div>
+
+        <div class="options">
+          <label>
+            <input type="checkbox" id="show-password">
+            Mostrar contraseña
+          </label>
+        </div>
+
+        <!-- ② ‑ Quitamos el onclick. El JS se encarga de la redirección -->
+        <button class="login-btn" type="submit">Aceptar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar/ocultar contraseña
+    document.getElementById('show-password').addEventListener('change', function () {
+      const type = this.checked ? 'text' : 'password';
+      document.getElementById('new-password').type = type;
+      document.getElementById('confirm-password').type = type;
+    });
+
+    // Validar y redirigir
+    document.getElementById('password-form').addEventListener('submit', function (e) {
+      e.preventDefault(); // Evita el envío tradicional
+
+      const pass  = document.getElementById('new-password').value.trim();
+      const pass2 = document.getElementById('confirm-password').value.trim();
+
+      // Validaciones mínimas
+      if (pass.length < 8) {
+        alert('La contraseña debe tener al menos 8 caracteres.');
+        return;
+      }
+
+      if (pass !== pass2) {
+        alert('Las contraseñas no coinciden.');
+        return;
+      }
+
+      // ✅ Si pasa las validaciones, redirigimos
+      window.location.href = 'mensaje-contraseña.html';
+      // Si tu sistema de archivos/servidor tiene problemas con la "ñ",
+      // renombra el archivo a mensaje-contrasena.html y cámbialo aquí.
+    });
+  </script>
+</body>
+</html>
+

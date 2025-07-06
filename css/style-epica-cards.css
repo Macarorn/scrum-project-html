@@ -1,0 +1,186 @@
+/* === SECCIÓN PRINCIPAL DE ÉPICAS === */
+.epica-cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: var(--light-gray, #f5f5f5);
+}
+
+/* === ACCIONES DE ÉPICA === */
+.epica-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+.epica-actions .card {
+  flex: none;
+  min-height: 200px;
+  width: 100%;
+}
+
+/* === CARD DE ACCIÓN GENERAL === */
+.card {
+  flex: 0 0 200px;
+  height: 160px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.card i {
+  font-size: 3rem;
+  color: #39A900;
+  margin-bottom: 0.9rem;
+}
+.card.upload-doc i {
+  color: #555;
+}
+.card span {
+  display: block;
+  color: inherit;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.card.new-epica span { color: #39A900; }
+.card.upload-doc span { color: #555; }
+
+/* === TOGGLE DE ÉPICAS Y DOCUMENTOS === */
+.epica-toggle {
+  display: flex;
+  width: calc((100% - (3 * 2.5rem)) / 4);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.epica-toggle .toggle {
+  flex: 1;
+  padding: 0.75rem 0;
+  background: #fff;
+  color: #39A900;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.epica-toggle .toggle.active {
+  background: #39A900;
+  color: #fff;
+}
+.epica-toggle .toggle:not(.active):hover {
+  background: #f0f0f0;
+}
+
+/* === GRID DE ÉPICAS Y DOCUMENTOS === */
+.epica-grid,
+.documento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  margin-top: 20px;
+}
+.epica-grid.hidden,
+.documento-grid.hidden {
+  display: none;
+}
+
+/* === CARD DE ÉPICA === */
+.epica-card,
+a.epica-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.epica-card:hover,
+a.epica-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+}
+a.epica-card:active,
+a.epica-card:visited,
+a.epica-card:focus {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+/* === TÍTULO DE LA ÉPICA === */
+.epica-card h3 {
+  font-size: 35px;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0; /* Espacio solo debajo del título */
+  color: #39A900;
+}
+
+/* === INFORMACIÓN DE LA ÉPICA === */
+.epica-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Sin espacio entre p y count */
+}
+.epica-card p,
+.epica-info p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  margin: 0;
+}
+.epica-card .count,
+.epica-info .count {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+/* === MENÚ DE TRES PUNTOS === */
+.epica-card .menu-trigger {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 2.2rem;
+  color: #999;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* === DOCUMENTO GRID: AJUSTES ESPECÍFICOS === */
+.documento-grid .epica-card p {
+  font-weight: 600;
+  font-size: 15px;
+}
+.documento-grid .epica-card h3 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .epica-actions, .epica-toggle {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
